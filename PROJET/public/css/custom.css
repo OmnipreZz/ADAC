@@ -1,3 +1,7 @@
+body {
+    background-color: #CFD8DC;
+}
+
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Login//////////////////////////////// */
@@ -8,25 +12,17 @@
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Layouts//////////////////////////////// */
-.bgOrange {
-    background-color: #FF5722;
-    /* background: linear-gradient(45deg, #FF5722, #757575); */
-}
-
-.bgYellow {
-    background-color: #FFEB3B;
-}
-
-.bgGreen {
-    background-color: #4CAF50;
-}
 .logo {
     border-radius: 25px;
+    background-color: #C2185B;
+    font-family: 'Judson', serif;
+    font-size: 20px;
 }
 
 .lightMain {
     height: 10vh;
     z-index: 1;
+    background-color: #CFD8DC;
 }
 
 main {

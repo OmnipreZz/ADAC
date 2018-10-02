@@ -25,9 +25,9 @@
 <body>
     <div id="app">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-light bgOrange fixed-top shadow-sm mt-3 ml-3 mr-3">
+            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm mt-3 ml-3 mr-3">
                 <div class="container">
-                    <a class="navbar-brand logo bg-light" href="{{ url('/') }}">
+                    <a class="navbar-brand logo shadow-sm text-white" href="{{ url('/') }}">
                         <i class="fas fa-music ml-3 mr-2"> ...</i> <span class="mr-3">ADAC</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -79,7 +79,7 @@
             <div class="row">
                 <leftside class="col-2 sticky-top">
                     <div class="stickyBloc"></div>
-                    <div class="cssSide my-3 shadow bgYellow text-center">
+                    <div class="cssSide my-3 shadow bg-white text-center">
 
  <!--//////////////BUTTON LEFT SIDE/////////////////-->
                         <div class="py-4">
@@ -117,7 +117,7 @@
                 </leftside>
 
                 <main class="col-7 py-4">
-                    <div class="lightMain bg-light fixed-top"></div>
+                    <div class="lightMain fixed-top"></div>
                     @yield('content')
                     @yield('content')
                     @yield('content')
@@ -126,7 +126,7 @@
 
                 <rightside class="col-3 sticky-top">
                     <div class="stickyBloc"></div>
-                    <div class="cssSide my-3 shadow bgGreen"></div>
+                    <div class="cssSide my-3 shadow bg-white"></div>
                 </rightside>
             </div>
 
