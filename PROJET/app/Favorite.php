@@ -19,13 +19,13 @@ class Favorite extends Model
         'post_id', 'user_id'
     ];
 
-    public function post()
+    public function posts()
     {
-    	return $this->hasOne('App\Post');
+    	return $this->belongsTo('App\Post');
     }
 
-    public function user()
+    public function users()
     {
-    	return $this->hasOne('App\User');
+    	return $this->belongsTo('App\User');
     }
 }
