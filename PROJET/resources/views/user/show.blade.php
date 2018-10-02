@@ -1,0 +1,23 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card">
+                <div class="card-header">{{ __('Modifier un utilisateur') }}</div>
+
+                <div class="card-body">
+                    <h5 class="card-title">Nom / Prénom</h5>
+                    <p class="card-text">{{$user->name}}</p>
+                    <h5 class="card-title">Email</h5>
+                    <p class="card-text">{{$user->email}}</p>
+                    <a href="{{ route ('user_edit', $user->id) }}" class="btn btn-outline-primary">Editer le profil</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@endsection
