@@ -20,7 +20,7 @@
 }
 
 .logo:hover {
-    background-color: #FF4081;
+    background-color: #E91E63;
 }
 
 .lightMain {
@@ -30,7 +30,7 @@
 }
 
 main {
-    margin-top: 15vh;
+    margin-top: 14vh;
 }
 
 .stickyBloc {
@@ -47,16 +47,10 @@ rightside {
 
 .cssSide {
     height: 80vh;
-    border-radius: 25px;
-}
-
-nav {
-    border-radius: 25px;
 }
 
 .btdesign {
     width: 130px;
-    border-radius: 25px;
     background-color: #512DA8;
 }
 
@@ -64,4 +58,44 @@ nav {
     background-color: #7C4DFF;
 }
 
+.dropdown-item:hover {
+    background-color: #7C4DFF;
+    color: white;
+}
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////Posts//////////////////////////////// */
+.postedBy {
+    color: #757575;
+    font-style: italic;
+}
+
+.card-footer {
+    
+}
+.persoPurple {
+    background-color: #512DA8;
+}
+
+.persoPurple:hover {
+    background-color: #7C4DFF;
+}
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////@MEDIA//////////////////////////////// */
+@media (max-width: 1199px) {
+    
+}
+
+@media (max-width: 991px) {
+    
+}
+
+@media (max-width: 767px) {
+     
+}
+
+@media (max-width: 400px) {
+    
+}
 

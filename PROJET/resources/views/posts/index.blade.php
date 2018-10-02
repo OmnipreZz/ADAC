@@ -5,42 +5,44 @@
 <div class="container">
     @foreach ($posts as $post)
 
-    <div class="card mb-5">
-        <div class="card-header text-center">
-            {{ $post->title }}
-            <span class="badge badge-primary">{{$post->category->name}}</span>
-            @auth
-     @if(!$post->fav)
-     <a href="{{route('favoriteStore',$post->id)}}" class="btn">Ajouter aux favoris</a>
-     @else
-     <a href="{{route('favoriteDestroy',$post->id)}}" class="btn">Retirer des favoris</a>
-     @endif
-    @endauth
-        </div>
-        <div class="card-body">
+    <div class="card mb-3 shadow">
+        <div class="card-body text-center bg-white">
+            <h2>{{ $post->title }}</h2><br>
             <p class="card-text">{{ $post->content }}</p>
         </div>
-        <div class="card-footer">
-            <p class="card-text">Posted by {{ $post->author }} at {{ $post->created_at}}</p>
+        <div class="mx-5 my-3">
+            <div>
+                <span class="badge badge-primary">{{$post->category->name}}</span>
+            </div>
+            <p class="card-text postedBy">Posté par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
 
             @if ($post->updated_at !=  $post->created_at )
 
-            <p class="card-text">Updated at {{ $post->updated_at}}</p>
+            <p class="card-text postedBy">Modifié par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->updated_at)) }} à {{ date('H:i', strtotime($post->updated_at)) }}</p>
 
             @endif
 
             @auth
 
             @if ($post->author ==  Auth::user()->name )
-
-            <a href="/post/destroy/{{$post->id}}" class="btn btn-outline-danger" role="button">Delete</a>
-            <a href="/post/edit/{{$post->id}}" class="btn btn-outline-primary" role="button">Update</a>
+            <div class="text-right">
+            <a href="/post/destroy/{{$post->id}}" class="btn btn persoPurple" role="button"><i class="fas fa-trash-alt text-white"></i></a>
+            <a href="/post/edit/{{$post->id}}" class="btn btn persoPurple" role="button"><i class="fas fa-edit text-white"></i></a>
 
             @endif
 
             @endauth
 
-            <a href="/post/show/{{$post->id}}" class="btn btn-outline-primary" role="button">Show</a>
+            <a href="/post/show/{{$post->id}}" class="btn persoPurple" role="button"><i class="fas fa-eye text-white"></i></a>
+
+            @auth
+                @if(!$post->fav)
+                <a href="{{route('favoriteStore',$post->id)}}" class="btn persoPurple" role="button"><i class="far fa-star text-white"></i></a>
+                @else
+                <a href="{{route('favoriteDestroy',$post->id)}}" class="btn persoPurple" role="button"><i class="fas fa-star text-warning"></i></a>
+                @endif
+            @endauth
+            </div>
         </div>
 
 

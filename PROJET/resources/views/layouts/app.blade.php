@@ -91,6 +91,7 @@
                             Evènements
                             </button>
                         </div>
+                        
                         <div class="dropright pb-4">
                             <button class="btn btdesign text-white shadow-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Instruments
@@ -101,6 +102,7 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </div>
+
                         <div class="dropright pb-4">
                             <button class="btn btdesign text-white shadow-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ateliers
