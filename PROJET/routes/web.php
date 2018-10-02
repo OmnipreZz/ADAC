@@ -39,4 +39,4 @@ Route::get('/user/{id}', 'UserController@show')->name('user_show');
 Route::get('/user/edit/{id}', 'UserController@edit')->name('user_edit');
 Route::post('/user/update/{id}', 'UserController@update')->name('user_update');
 
-// Route::post('/user/delete/{id}', 'UserController@delete')->name('user_delete');
+Route::post('/user/delete/{id}', 'UserController@delete')->name('user_delete');

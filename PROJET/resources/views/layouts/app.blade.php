@@ -123,9 +123,6 @@
                 <main class="col-7 py-4">
                     <div class="lightMain fixed-top"></div>
                     @yield('content')
-                    @yield('content')
-                    @yield('content')
-                    @yield('content')
                 </main>
 
                 <rightside class="col-3 sticky-top">
