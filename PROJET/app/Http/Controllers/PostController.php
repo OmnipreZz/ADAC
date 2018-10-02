@@ -17,7 +17,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('category')->with('favorites')->get();
+
+        foreach($posts as $post)
+        {
+            if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+                $post->fav = true;
+            else
+                $post->fav = false;
+        }
 
         return view('posts.index',compact('posts'));
     }
