@@ -66,9 +66,17 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+        // $comments = DB::table('comments')
+        // ->where('post_id', '=', $id)
+        // ->orderBy('id', 'desc')
+        // ->get();
+
+
+
+        return view('posts.show',compact('post'));
     }
 
     /**
@@ -77,9 +85,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $categories = Category::pluck('name','id');
+        $post = Post::findOrFail($id);
+        $hisCategory = $post->category;
+        return view('posts.edit', compact('post','categories','hisCategory'));
     }
 
     /**
@@ -89,9 +100,16 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'category_id' => $request->input('category')
+        ]);
+
+        return redirect()->route('postIndex');
     }
 
     /**
@@ -100,8 +118,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
+        Post::find($id)->delete();
+
+        return $this->index();
     }
 }
