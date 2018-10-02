@@ -6,14 +6,21 @@
     @foreach ($posts as $post)
 
     <div class="card mb-3 shadow">
+        <div class="m-2">
+            @auth
+                @if(!$post->fav)
+                <a href="{{route('favoriteStore',$post->id)}}" class="btn" role="button"><i class="far fa-star fa-2x text-dark"></i></a>
+                @else
+                <a href="{{route('favoriteDestroy',$post->id)}}" class="btn" role="button"><i class="fas fa-star fa-2x text-warning"></i></a>
+                @endif
+            @endauth
+            <span class="badge badge-primary">{{$post->category->name}}</span>
+        </div>
         <div class="card-body text-center bg-white">
             <h2>{{ $post->title }}</h2><br>
             <p class="card-text">{{ $post->content }}</p>
         </div>
-        <div class="mx-5 my-3">
-            <div>
-                <span class="badge badge-primary">{{$post->category->name}}</span>
-            </div>
+        <div class="card-footer mx-5 my-3 bg-white">
             <p class="card-text postedBy">Posté par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
 
             @if ($post->updated_at !=  $post->created_at )
@@ -32,16 +39,7 @@
             @endif
 
             @endauth
-
             <a href="/post/show/{{$post->id}}" class="btn persoPurple" role="button"><i class="fas fa-eye text-white"></i></a>
-
-            @auth
-                @if(!$post->fav)
-                <a href="{{route('favoriteStore',$post->id)}}" class="btn persoPurple" role="button"><i class="far fa-star text-white"></i></a>
-                @else
-                <a href="{{route('favoriteDestroy',$post->id)}}" class="btn persoPurple" role="button"><i class="fas fa-star text-warning"></i></a>
-                @endif
-            @endauth
             </div>
         </div>
 

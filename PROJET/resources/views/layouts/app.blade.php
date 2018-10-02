@@ -86,34 +86,104 @@
                     <div class="cssSide my-3 shadow bg-white text-center">
 
  <!--//////////////BUTTON LEFT SIDE/////////////////-->
-                        <div class="py-4">
+                        
+                            <!-- boutton instruments -->
+                        <div class="py-4 ml-2">
+                            <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                                Instruments
+                            </button>
+                        </div>
+                        <div class="collapse text-left" id="collapseExample1">
+                                <ul>
+                                    <li>
+                                        <a>guitare</a>
+                                    </li>
+                                    <li>
+                                        <a>basse</a>
+                                    </li>
+                                    <li>
+                                        <a>piano</a>
+                                    </li>
+                                    <li>
+                                        <a>synthe</a>
+                                    </li>
+                                    <li>
+                                        <a>batterie</a>
+                                    </li>
+                                    <li>
+                                        <a>chant</a>
+                                    </li>
+                                    <li>
+                                        <a>trompette</a>
+                                    </li>
+                                    <li>
+                                        <a>saxophone</a>
+                                    </li>
+                                    <li>
+                                        <a>clarinette</a>
+                                    </li>
+                                    <li>
+                                        <a>flute</a>
+                                    </li>
+                                    <li>
+                                        <a>eveil</a>
+                                    </li>
+                                    <li>
+                                        <a>accordeon</a>
+                                    </li>
+                                    <li>
+                                        <a>accordeon chromatique</a>
+                                    </li>
+                                    <li>
+                                        <a>diatonique</a>
+                                    </li>
+                                    <li>
+                                        <a>mao</a>
+                                    </li>
+                                    <li>
+                                        <a>harpe</a>
+                                    </li>
+                                    <li>
+                                        <a>cornemuse</a>
+                                    </li>
+                                    <li>
+                                        <a>violon</a>
+                                    </li>
+                                    <li>
+                                        <a>violoncelle</a>
+                                    </li>
+                                </ul>
+                        </div>
+                            <!-- boutton ateliers -->
+                        <div class="pb-4 ml-2">
+                            <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                                Ateliers
+                            </button>
+                        </div>
+                        <div class="collapse text-left" id="collapseExample2">
+                            <ul>
+                                <li>
+                                    <a>trad</a>
+                                </li>
+                                <li>
+                                    <a>classique</a>
+                                </li>
+                                <li>
+                                    <a>rock</a>
+                                </li>
+                                <li>
+                                    <a>jazz</a>
+                                </li>
+                            </ul>
+                        </div>
+                            <!-- boutton Evenements -->
+                        <div class="pb-4 ml-2">
                             <button class="btn btdesign text-white shadow-sm" type="button">
                             Evènements
                             </button>
                         </div>
-                        
-                        <div class="dropright pb-4">
-                            <button class="btn btdesign text-white shadow-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Instruments
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-
-                        <div class="dropright pb-4">
-                            <button class="btn btdesign text-white shadow-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ateliers
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="">
+                            <!-- boutton FM -->
+                        <div class="ml-2">
                             <button class="btn btdesign text-white shadow-sm" type="button">
                             F . M
                             </button>
