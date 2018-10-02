@@ -8,7 +8,14 @@
     <div class="card mb-5">
         <div class="card-header text-center">
             {{ $post->title }}
-            
+            <span class="badge badge-primary">{{$post->category->name}}</span>
+            @auth
+     @if(!$post->fav)
+     <a href="{{route('favoriteStore',$post->id)}}" class="btn">Ajouter aux favoris</a>
+     @else
+     <a href="{{route('favoriteDestroy',$post->id)}}" class="btn">Retirer des favoris</a>
+     @endif
+    @endauth
         </div>
         <div class="card-body">
             <p class="card-text">{{ $post->content }}</p>

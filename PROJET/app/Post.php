@@ -41,7 +41,12 @@ class Post extends Model
 
     public function favorites()
     {
-    	return $this->belongsToMany('App\Favorite');
+    	return $this->hasMany('App\Favorite');
+    }
+
+    public function getFavoriteListAttribute()
+    {
+        return $this->favorites->pluck('user_id')->all();
     }
 
     
