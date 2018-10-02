@@ -1,0 +1,58 @@
+#app {
+    background-color: #CFD8DC;
+}
+
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////Login//////////////////////////////// */
+.bigTitle {
+    font-size: 8em;
+    font-family: 'Judson', serif;
+}
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////Layouts//////////////////////////////// */
+.logo {
+    border-radius: 25px;
+    background-color: #C2185B;
+    font-family: 'Judson', serif;
+    font-size: 20px;
+}
+
+.lightMain {
+    height: 10vh;
+    z-index: 1;
+    background-color: #CFD8DC;
+}
+
+main {
+    margin-top: 15vh;
+}
+
+.stickyBloc {
+    height: 12vh;
+}
+
+leftside {
+    height: 100vh;
+}
+
+rightside {
+    height: 100vh;
+}
+
+.cssSide {
+    height: 80vh;
+    border-radius: 25px;
+}
+
+nav {
+    border-radius: 25px;
+}
+
+.btdesign {
+    width: 130px;
+    border-radius: 25px;
+}
+
+
