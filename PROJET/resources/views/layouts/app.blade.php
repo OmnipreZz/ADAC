@@ -83,12 +83,12 @@
 
  <!--//////////////BUTTON LEFT SIDE/////////////////-->
                         <div class="py-4">
-                            <button class="btn btdesign btn-success text-dark shadow-sm" type="button">
+                            <button class="btn btdesign btn-success shadow-sm" type="button">
                             Evènements
                             </button>
                         </div>
                         <div class="dropright pb-4">
-                            <button class="btn btdesign btn-secondary text-dark shadow-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btdesign btn-warning shadow-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Instruments
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="dropright pb-4">
-                            <button class="btn btdesign btn-danger text-dark shadow-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btdesign btn-danger shadow-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ateliers
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <button class="btn btdesign btn-info text-dark shadow-sm" type="button">
+                            <button class="btn btdesign btn-info shadow-sm" type="button">
                             F . M
                             </button>
                         </div>
