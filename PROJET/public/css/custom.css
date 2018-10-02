@@ -19,6 +19,10 @@
     font-size: 20px;
 }
 
+.logo:hover {
+    background-color: #FF4081;
+}
+
 .lightMain {
     height: 10vh;
     z-index: 1;
@@ -53,6 +57,11 @@ nav {
 .btdesign {
     width: 130px;
     border-radius: 25px;
+    background-color: #512DA8;
+}
+
+.btdesign:hover {
+    background-color: #7C4DFF;
 }
 
 
