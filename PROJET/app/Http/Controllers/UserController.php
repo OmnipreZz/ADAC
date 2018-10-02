@@ -1,15 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+// use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\Validator;
+// use Illuminate\Foundation\Auth\RegistersUsers;
 
-class UsersContoller extends Controller
+class UserController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display the specified resource.
@@ -19,8 +31,9 @@ class UsersContoller extends Controller
      */
     public function show($id)
     {
-        $role = Role::findOrFail($id);
-        return view('role.show', compact('role'));
+
+        $user = User::findOrFail($id);
+        return view('user.show', compact('user'));
     }
 
     /**
@@ -29,10 +42,10 @@ class UsersContoller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id = null)
+    public function edit($id)
     {
-        $role = Role::findOrFail($id);
-        return view('role.edit', compact('role'));
+        $user = User::findOrFail($id);
+        return view('user.edit', compact('user'));
     }
     
     /**
@@ -51,6 +64,6 @@ class UsersContoller extends Controller
             'password' => $request->input('password'),
             'updated_at' => $request->input('updated_at'),
         ]);
-        return redirect()->route('roleShow', $id);
+        return redirect()->route('user_show', $id);
     }
 }
