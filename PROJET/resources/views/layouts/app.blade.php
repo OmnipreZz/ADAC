@@ -127,7 +127,11 @@
 
                 <rightside class="col-3 sticky-top">
                     <div class="stickyBloc"></div>
-                    <div class="cssSide my-3 shadow bg-white"></div>
+                    <div class="cssSide my-3 shadow bg-white">
+                        <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+                    </div>
+
+
                 </rightside>
             </div>
 

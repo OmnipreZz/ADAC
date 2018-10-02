@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
@@ -26,7 +29,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('name','id');
+        return view('posts.create',compact('categories'));
     }
 
     /**
@@ -37,7 +41,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'author' => Auth::user()->name,
+            'user_id' => Auth::user()->id,
+            'category_id' => $request->input('category')
+        ]);
+
+        return redirect()->route('postIndex');
     }
 
     /**
