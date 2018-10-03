@@ -21,10 +21,10 @@ class PostController extends Controller
 
         foreach($posts as $post)
         {
-            if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
-                $post->fav = true;
-            else
-                $post->fav = false;
+            // if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+            //     $post->fav = true;
+            // else
+            //     $post->fav = false;
         }
 
         return view('posts.index',compact('posts'));

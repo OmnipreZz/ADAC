@@ -34,7 +34,6 @@ Route::get('/favorite/destroy/{id}','FavoriteController@destroy')->name('favorit
 
 
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -44,3 +43,5 @@ Route::get('/user/edit/{id}', 'UserController@edit')->name('user_edit');
 Route::post('/user/update/{id}', 'UserController@update')->name('user_update');
 
 Route::post('/user/delete/{id}', 'UserController@delete')->name('user_delete');
+
+Route::get('/categories', 'CategoryController@index')->name('category_index');
