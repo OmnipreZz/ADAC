@@ -83,13 +83,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        // $comments = DB::table('comments')
-        // ->where('post_id', '=', $id)
-        // ->orderBy('id', 'desc')
-        // ->get();
         $hisComments = $post->comments;
 
-
+        if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+                $post->fav = true;
+            else
+                $post->fav = false;
 
         return view('posts.show',compact('post','hisComments'));
     }
