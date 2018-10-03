@@ -141,7 +141,7 @@ class PostController extends Controller
     public function myfavorites()
     {
         $favorites = Auth::user()->favorites()->pluck('post_id')->all();
-        $posts = Post::whereIn('id',$favorites)->paginate(5);
+        $posts = Post::whereIn('id',$favorites)->orderBy('id', 'desc')->paginate(5);
 
         foreach($posts as $post)
         {
@@ -156,7 +156,7 @@ class PostController extends Controller
 
     public function myPosts()
     {
-        $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->paginate(5);
+        $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
 
         foreach($posts as $post)
         {
