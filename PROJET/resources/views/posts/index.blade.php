@@ -4,6 +4,7 @@
 
 
 <div class="container">
+    {{ $posts->links() }}
     @foreach ($posts as $post)
 
     <div class="card mb-3 shadow">
@@ -30,10 +31,11 @@
 
             @endif
 
+            <div class="text-right">
             @auth
 
             @if ($post->author ==  Auth::user()->name )
-            <div class="text-right">
+            
             <a href="{{route('postDestroy',$post->id)}}" class="btn btn persoPurple" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
             <a href="{{route('postEdit',$post->id)}}" class="btn btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
 
@@ -50,7 +52,7 @@
     @endforeach
 </div>
 
-<!--  -->
+{{ $posts->links() }}
 
 @endsection
 
