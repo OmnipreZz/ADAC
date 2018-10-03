@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 
 class PostController extends Controller
@@ -132,9 +135,23 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
         Post::find($id)->delete();
-
         return $this->index();
+    }
+
+    public function myfavorites()
+    {
+        $favorites = Auth::user()->favorites()->pluck('post_id')->all();
+        $posts = Post::whereIn('id',$favorites)->paginate(5);
+        
+        foreach($posts as $post)
+        {
+            if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+                $post->fav = true;
+            else
+                $post->fav = false;
+        }
+
+        return view('posts.index',compact('posts')); 
     }
 }

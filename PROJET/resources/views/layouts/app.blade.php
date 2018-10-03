@@ -200,10 +200,15 @@
         <rightside class="col-3 sticky-top">
             <div class="stickyBloc"></div>
             <div class="cssSide my-3 shadow bg-white">
+                <h3>{{Auth::user()->name}}</h3>
+                <a href="{{route('postFavorites')}}" class="btn">Voir mes favoris</a>
+
+                @if(Auth::user()->role_id == (1 || 2))
                 <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+                <a href="{{route('postMyPosts')}}" class="btn">Voir mes posts</a>
+                @endif
+                
             </div>
-
-
         </rightside>
     </div>
 
