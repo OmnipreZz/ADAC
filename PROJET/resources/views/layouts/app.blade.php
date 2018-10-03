@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -21,6 +22,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/simple-sidebar1.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -30,9 +33,14 @@
                     <a class="navbar-brand logo shadow-sm text-white" href="{{ url('/') }}">
                         <i class="fas fa-music ml-3 mr-2"> ...</i> <span class="mr-3">ADAC</span>
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+                    <button href="#menu-toggle" id="menu-toggle" class="btn btCache persoPurple text-white rounded-circle" role="button"><i class="fas fa-angle-left"></i></button>
+
+                    <button href="#menu-toggle1" id="menu-toggle1" class="btn btCache persoPurple text-white rounded-circle" role="button"><i class="fas fa-angle-right"></i></button>
+
+                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span> 
-                    </button>
+                    </button> -->
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
@@ -80,14 +88,14 @@
                 </div>
             </nav>
 
+
             <div class="row">
-                <leftside class="col-2 sticky-top">
+
+<!--//////////////LEFT SIDE/////////////////-->
+                <div class="leftSide col-2 sticky-top">
                     <div class="stickyBloc"></div>
                     <div class="cssSide my-3 shadow bg-white text-center">
-
- <!--//////////////BUTTON LEFT SIDE/////////////////-->
-                        
-                            <!-- boutton instruments -->
+                            <!-- bouton instruments -->
                         <div class="py-4 ml-2">
                             <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                                 Instruments
@@ -154,7 +162,7 @@
                                     </li>
                                 </ul>
                         </div>
-                            <!-- boutton ateliers -->
+                            <!-- bouton ateliers -->
                         <div class="pb-4 ml-2">
                             <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
                                 Ateliers
@@ -176,38 +184,162 @@
                                 </li>
                             </ul>
                         </div>
-                            <!-- boutton Evenements -->
+                            <!-- bouton Evenements -->
                         <div class="pb-4 ml-2">
                             <button class="btn btdesign text-white shadow-sm" type="button">
                             Evènements
                             </button>
                         </div>
-                            <!-- boutton FM -->
+                            <!-- bouton FM -->
                         <div class="ml-2">
                             <button class="btn btdesign text-white shadow-sm" type="button">
                             F . M
                             </button>
-                        </div>
-
+                        </div>   
                     </div>
-                </leftside>
+                </div>
 
-                <main class="col-7 py-4">
+                <!-- mobile left side -->
+                <div class="leftSideMobil col-1">
+                    <div class="stickyBloc">
+                    </div>
+                    <div id="wrapper">
+                        <div class="cssSide my-3 shadow bg-white text-center" id="sidebar-wrapper">
+                                <!-- bouton instruments -->
+                            <div class="py-4 ml-2">
+                                <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                                    Instruments
+                                </button>
+                            </div>
+                            <div class="collapse text-left" id="collapseExample1">
+                                    <ul>
+                                        <li>
+                                            <a>guitare</a>
+                                        </li>
+                                        <li>
+                                            <a>basse</a>
+                                        </li>
+                                        <li>
+                                            <a>piano</a>
+                                        </li>
+                                        <li>
+                                            <a>synthe</a>
+                                        </li>
+                                        <li>
+                                            <a>batterie</a>
+                                        </li>
+                                        <li>
+                                            <a>chant</a>
+                                        </li>
+                                        <li>
+                                            <a>trompette</a>
+                                        </li>
+                                        <li>
+                                            <a>saxophone</a>
+                                        </li>
+                                        <li>
+                                            <a>clarinette</a>
+                                        </li>
+                                        <li>
+                                            <a>flute</a>
+                                        </li>
+                                        <li>
+                                            <a>eveil</a>
+                                        </li>
+                                        <li>
+                                            <a>accordeon</a>
+                                        </li>
+                                        <li>
+                                            <a>accordeon chromatique</a>
+                                        </li>
+                                        <li>
+                                            <a>diatonique</a>
+                                        </li>
+                                        <li>
+                                            <a>mao</a>
+                                        </li>
+                                        <li>
+                                            <a>harpe</a>
+                                        </li>
+                                        <li>
+                                            <a>cornemuse</a>
+                                        </li>
+                                        <li>
+                                            <a>violon</a>
+                                        </li>
+                                        <li>
+                                            <a>violoncelle</a>
+                                        </li>
+                                    </ul>
+                            </div>
+                                <!-- bouton ateliers -->
+                            <div class="pb-4 ml-2">
+                                <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                                    Ateliers
+                                </button>
+                            </div>
+                            <div class="collapse text-left" id="collapseExample2">
+                                <ul>
+                                    <li>
+                                        <a>trad</a>
+                                    </li>
+                                    <li>
+                                        <a>classique</a>
+                                    </li>
+                                    <li>
+                                        <a>rock</a>
+                                    </li>
+                                    <li>
+                                        <a>jazz</a>
+                                    </li>
+                                </ul>
+                            </div>
+                                <!-- bouton Evenements -->
+                            <div class="pb-4 ml-2">
+                                <button class="btn btdesign text-white shadow-sm" type="button">
+                                Evènements
+                                </button>
+                            </div>
+                                <!-- bouton FM -->
+                            <div class="ml-2">
+                                <button class="btn btdesign text-white shadow-sm" type="button">
+                                F . M
+                                </button>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+
+<!--//////////////MAIN CONTENT/////////////////-->
+                <main class="col-10 col-lg-7 col-xl-7 py-4">
                     <div class="lightMain fixed-top"></div>
                     @yield('content')
                 </main>
 
-                <rightside class="col-3 sticky-top">
-                    <div class="stickyBloc"></div>
+<!--//////////////RIGHT SIDE/////////////////-->
+                <div class="rightSide col-3 sticky-top">
+                    <div class="stickyBloc">
+                    </div>
                     <div class="cssSide my-3 shadow bg-white">
                         <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
                     </div>
+                </div>
 
+                <!-- mobile right side -->
+                <div class="rightSideMobil col-1">
+                    <div class="stickyBloc">
+                    </div>
+                    <div id="wrapper1">
+                        <div class="cssSide my-3 shadow bg-white" id="sidebar-wrapper1">
+                            <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+                        </div>
+                    </div>
+                </div>
 
-                </rightside>
             </div>
 
         </div>
+
     </div>
 </body>
 </html>
