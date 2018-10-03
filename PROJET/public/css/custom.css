@@ -67,7 +67,7 @@ rightside {
 /* ///////// */
 /* ////////////////////////////////Posts//////////////////////////////// */
 .postedBy {
-    color: #757575;
+    color: #7C4DFF;
     font-style: italic;
 }
 
@@ -77,6 +77,14 @@ rightside {
 
 .persoPurple:hover {
     background-color: #7C4DFF;  
+}
+
+.textPurple {
+    color: #512DA8;
+}
+
+.card-body h2 {
+    font-family: 'Merriweather', serif;
 }
 /* /////////////////// */
 /* ///////// */

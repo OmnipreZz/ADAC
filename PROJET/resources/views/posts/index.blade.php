@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container">
     @foreach ($posts as $post)
 
@@ -9,16 +10,16 @@
         <div class="m-2">
             @auth
                 @if(!$post->fav)
-                <a href="{{route('favoriteStore',$post->id)}}" class="btn" role="button"><i class="far fa-star fa-2x text-dark"></i></a>
+                <a href="{{route('favoriteStore',$post->id)}}" class="m-2" role="button"><i class="far fa-star fa-2x textPurple"></i></a>
                 @else
-                <a href="{{route('favoriteDestroy',$post->id)}}" class="btn" role="button"><i class="fas fa-star fa-2x text-warning"></i></a>
+                <a href="{{route('favoriteDestroy',$post->id)}}" class="m-2" role="button"><i class="fas fa-star fa-2x text-warning"></i></a>
                 @endif
             @endauth
             <span class="badge badge-primary">{{$post->category->name}}</span>
         </div>
-        <div class="card-body text-center bg-white">
+        <div class="card-body text-center bg-white text-secondary">
             <h2>{{ $post->title }}</h2><br>
-            <p class="card-text">{{ $post->content }}</p>
+            <p class="card-text mb-3">{{ $post->content }}</p>
         </div>
         <div class="card-footer mx-5 my-3 bg-white">
             <p class="card-text postedBy">Posté par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
@@ -33,13 +34,13 @@
 
             @if ($post->author ==  Auth::user()->name )
             <div class="text-right">
-            <a href="/post/destroy/{{$post->id}}" class="btn btn persoPurple" role="button"><i class="fas fa-trash-alt text-white"></i></a>
-            <a href="/post/edit/{{$post->id}}" class="btn btn persoPurple" role="button"><i class="fas fa-edit text-white"></i></a>
+            <a href="/post/destroy/{{$post->id}}" class="btn btn persoPurple" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
+            <a href="/post/edit/{{$post->id}}" class="btn btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
 
             @endif
 
             @endauth
-            <a href="/post/show/{{$post->id}}" class="btn persoPurple" role="button"><i class="fas fa-eye text-white"></i></a>
+            <a href="/post/show/{{$post->id}}" class="btn persoPurple" role="button" title="Voir le post"><i class="fas fa-eye text-white"></i></a>
             </div>
         </div>
 
