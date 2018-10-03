@@ -123,14 +123,15 @@
                 <main class="col-7 py-4">
                     <div class="lightMain fixed-top"></div>
                     @yield('content')
-                    @yield('content')
-                    @yield('content')
-                    @yield('content')
                 </main>
 
                 <rightside class="col-3 sticky-top">
                     <div class="stickyBloc"></div>
-                    <div class="cssSide my-3 shadow bg-white"></div>
+                    <div class="cssSide my-3 shadow bg-white">
+                        <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+                    </div>
+
+
                 </rightside>
             </div>
 

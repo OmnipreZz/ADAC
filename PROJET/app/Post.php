@@ -16,7 +16,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'author', 'content'
+        'title', 'author', 'content','category_id','user_id'
     ];
 
     public function comments()
@@ -41,7 +41,12 @@ class Post extends Model
 
     public function favorites()
     {
-    	return $this->belongsToMany('App\Favorite');
+    	return $this->hasMany('App\Favorite');
+    }
+
+    public function getFavoriteListAttribute()
+    {
+        return $this->favorites->pluck('user_id')->all();
     }
 
     

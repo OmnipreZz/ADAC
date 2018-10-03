@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Favorite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class FavoriteController extends Controller
 {
@@ -33,9 +35,13 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $favorite = Favorite::create([
+            'post_id' => $id,
+            'user_id' => Auth::user()->id
+        ]);
+        return redirect()->route('postIndex');
     }
 
     /**
@@ -78,8 +84,10 @@ class FavoriteController extends Controller
      * @param  \App\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy($id)
     {
-        //
+        $favorite = Favorite::where('post_id','=',$id)->where('user_id','=',Auth::user()->id);
+        $favorite->delete();
+        return redirect()->back();
     }
 }
