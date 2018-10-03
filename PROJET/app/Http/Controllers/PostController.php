@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category')->with('favorites')->paginate(5);
+        $posts = Post::with('category')->with('favorites')->orderBy('id', 'desc')->paginate(5);
 
         foreach($posts as $post)
         {
