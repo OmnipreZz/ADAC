@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category')->with('favorites')->paginate(4);
+        $posts = Post::with('category')->with('favorites')->paginate(5);
 
         foreach($posts as $post)
         {
@@ -143,7 +143,7 @@ class PostController extends Controller
     {
         $favorites = Auth::user()->favorites()->pluck('post_id')->all();
         $posts = Post::whereIn('id',$favorites)->paginate(5);
-        
+
         foreach($posts as $post)
         {
             if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
@@ -153,5 +153,20 @@ class PostController extends Controller
         }
 
         return view('posts.index',compact('posts')); 
+    }
+
+    public function myPosts()
+    {
+        $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->paginate(5);
+
+        foreach($posts as $post)
+        {
+            if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+                $post->fav = true;
+            else
+                $post->fav = false;
+        }
+
+        return view('posts.index',compact('posts'));
     }
 }
