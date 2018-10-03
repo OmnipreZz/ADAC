@@ -38,13 +38,15 @@ Route::get('/comment/destroy/{id}','CommentController@destroy')->name('commentDe
 
 
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Routes concernant la gestion des utilisateurs
 Route::get('/user/{id}', 'UserController@show')->name('user_show');
 Route::get('/user/edit/{id}', 'UserController@edit')->name('user_edit');
 Route::post('/user/update/{id}', 'UserController@update')->name('user_update');
+Route::post('/user/delete/{id}', 'UserController@delete')->name('user_delete');
 
-// Route::post('/user/delete/{id}', 'UserController@delete')->name('user_delete');
+// Routes concernant la gestion des catégories
+Route::get('/categories', 'CategoryController@index')->name('category_index');

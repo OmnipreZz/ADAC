@@ -72,7 +72,7 @@
 
                     <div class="form-group row">
                         <div class="mx-auto">
-                            <button type="submit" class="btn btn-danger">
+                            <button type="submit" class="btn btn-outline-success">
                                 Connexion
                             </button>
                             

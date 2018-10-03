@@ -66,4 +66,21 @@ class UserController extends Controller
         ]);
         return redirect()->route('user_show', $id);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        // delete
+        User::find($id)->delete();
+
+        // redirect
+        // Session::flash('message', 'Successfully deleted the user!');
+        // return Redirect::to('postIndex');
+        return redirect()->route('postIndex');
+    }
 }
