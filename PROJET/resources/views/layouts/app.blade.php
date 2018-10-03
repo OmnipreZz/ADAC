@@ -201,9 +201,11 @@
             <div class="stickyBloc"></div>
             <div class="cssSide my-3 shadow bg-white">
                 <h3>{{Auth::user()->name}}</h3>
+
+                <a href="{{route('postIndex')}}" class="btn">Voir tous les posts</a>
                 <a href="{{route('postFavorites')}}" class="btn">Voir mes favoris</a>
 
-                @if(Auth::user()->role_id == (1 || 2))
+                @if(in_array(Auth::user()->role_id,[1,2]))
                 <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
                 <a href="{{route('postMyPosts')}}" class="btn">Voir mes posts</a>
                 @endif
