@@ -200,7 +200,25 @@
                 <rightside class="col-3 sticky-top">
                     <div class="stickyBloc"></div>
                     <div class="cssSide my-3 shadow bg-white">
-                        <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+
+                        <h5>Posts</h5>
+                        <a href="{{route('postCreate')}}" class="">Créer un post</a><br>
+                        <hr>
+                        
+                        <h5>Utilisateurs</h5>
+                        <a href="{{ route('user_index') }}" class="">Index Utilisateurs</a><br>
+                        <a href="{{ route('user_show', Auth::user()->id ) }}" class="">Voir un profil d'utilisateur</a><br>
+                        <a href="{{ route('user_edit', Auth::user()->id ) }}" class="">Editer un profil profil</a><br>
+                        <a href="{{ route('user_delete', Auth::user()->id ) }}" class="">!!! Supprimer un profil profil !!!</a><br>
+                        <hr>
+                    
+                        <h5>Categories</h5>
+                        <a href="{{route('category_index')}}" class="">Index Categories</a><br>
+                        <a href="{{route('category_index')}}" class="">Voir une Categories</a><br>
+                        <a href="{{route('category_index')}}" class="">Editer une Categories</a><br>
+                        <a href="{{route('category_index')}}" class="">!!! Supprimer une Categories !!!</a><br>
+                        <hr>
+
                     </div>
 
 

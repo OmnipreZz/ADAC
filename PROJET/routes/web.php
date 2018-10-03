@@ -43,6 +43,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Routes concernant la gestion des utilisateurs
+Route::get('/users', 'UserController@index')->name('user_index');
 Route::get('/user/{id}', 'UserController@show')->name('user_show');
 Route::get('/user/edit/{id}', 'UserController@edit')->name('user_edit');
 Route::post('/user/update/{id}', 'UserController@update')->name('user_update');

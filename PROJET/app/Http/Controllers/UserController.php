@@ -22,6 +22,18 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $users = User::all();
+
+        return view('user.index',compact('users'));
+    }
 
     /**
      * Display the specified resource.
