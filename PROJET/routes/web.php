@@ -28,9 +28,13 @@ Route::get('post/show/{id}','PostController@show')->name('postShow');
 // POST destroy
 Route::get('post/destroy/{id}','PostController@destroy')->name('postDestroy');
 
-// FAVORITE create & destroy
-Route::get('/favorite/create/{id}','FavoriteController@store')->name('favoriteStore');
+// FAVORITE store & destroy
+Route::get('/favorite/store/{id}','FavoriteController@store')->name('favoriteStore');
 Route::get('/favorite/destroy/{id}','FavoriteController@destroy')->name('favoriteDestroy');
+
+// COMMENT store & destroy
+Route::post('/comment/store/{id}','CommentController@store')->name('commentStore');
+Route::get('/comment/destroy/{id}','CommentController@destroy')->name('commentDestroy');
 
 
 

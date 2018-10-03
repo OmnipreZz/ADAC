@@ -73,10 +73,11 @@ class PostController extends Controller
         // ->where('post_id', '=', $id)
         // ->orderBy('id', 'desc')
         // ->get();
+        $hisComments = $post->comments;
 
 
 
-        return view('posts.show',compact('post'));
+        return view('posts.show',compact('post','hisComments'));
     }
 
     /**

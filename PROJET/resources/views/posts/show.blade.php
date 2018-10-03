@@ -25,6 +25,18 @@
 </div>
 </div>
 <h1>Comments</h1>
+@foreach ($hisComments as $comment)
+<div class="card mb-5">
+    <div class="card-body">
+        <p class="card-text">{{$comment->content}}</p>
+    </div>
+    <div class="card-footer">
+        <p class="card-text">Posted by {{ $comment->author }} at {{ $comment->created_at}}</p>
+                        <!-- <a href="" class="btn btn-danger" role="button">Delete</a>
+                            <a href="" class="btn btn-primary" role="button">Update</a> -->
+    </div>
+</div>
+@endforeach
 
 <div class="container mb-4">
     <div class="row justify-content-center">
@@ -33,7 +45,7 @@
                 <div class="card-header">Create your comment</div>
 
                 <div class="card-body">
-                    <form method="POST" action="" aria-label="">
+                    <form method="POST" action="{{route('commentStore',$post->id)}}" aria-label="">
                         @csrf
 
                         <div class="form-group row">

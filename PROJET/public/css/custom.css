@@ -2,6 +2,9 @@
     background-color: #CFD8DC;
 }
 
+li {
+    list-style-type: none;
+}
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Login//////////////////////////////// */
@@ -19,6 +22,10 @@
     font-size: 20px;
 }
 
+.logo:hover {
+    background-color: #E91E63;
+}
+
 .lightMain {
     height: 10vh;
     z-index: 1;
@@ -26,7 +33,7 @@
 }
 
 main {
-    margin-top: 15vh;
+    margin-top: 14vh;
 }
 
 .stickyBloc {
@@ -43,16 +50,69 @@ rightside {
 
 .cssSide {
     height: 80vh;
-    border-radius: 25px;
-}
-
-nav {
-    border-radius: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .btdesign {
     width: 130px;
     border-radius: 25px;
+    background-color: #512DA8;
 }
 
+.btdesign:hover {
+    background-color: #7C4DFF;
+}
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////Posts//////////////////////////////// */
+.postedBy {
+    color: #7C4DFF;
+    font-style: italic;
+}
+
+.persoPurple {
+    background-color: #512DA8;
+}
+
+.persoPurple:hover {
+    background-color: #7C4DFF;  
+}
+
+.textPurple {
+    color: #512DA8;
+}
+
+.card-body h2 {
+    font-family: 'Merriweather', serif;
+}
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////@MEDIA//////////////////////////////// */
+@media (max-width: 1199px) {
+    .btdesign {
+        width: 100px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .btdesign {
+        width: 80px;
+    } 
+}
+
+@media (max-width: 767px) {
+
+     .btdesign {
+        width: 60px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .btdesign {
+        width: 60px;
+    }
+}
 
