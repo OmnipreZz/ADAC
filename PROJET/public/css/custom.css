@@ -40,12 +40,22 @@ main {
     height: 12vh;
 }
 
-leftside {
+.leftSide {
     height: 100vh;
 }
 
-rightside {
+.leftSideMobil {
     height: 100vh;
+    display: none;
+}
+
+.rightSide {
+    height: 100vh;
+}
+
+.rightSideMobil {
+    height: 100vh;
+    display: none;
 }
 
 .cssSide {
@@ -55,7 +65,7 @@ rightside {
 }
 
 .btdesign {
-    width: 130px;
+    width: 140px;
     border-radius: 25px;
     background-color: #512DA8;
 }
@@ -63,6 +73,11 @@ rightside {
 .btdesign:hover {
     background-color: #7C4DFF;
 }
+
+.btCache {
+        display: none;
+    }
+
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Posts//////////////////////////////// */
@@ -85,6 +100,11 @@ rightside {
 
 .card-body h2 {
     font-family: 'Merriweather', serif;
+    color: #5D4037;
+}
+
+.card-body p {
+    color: #607D8B;
 }
 /* /////////////////// */
 /* ///////// */
@@ -98,21 +118,38 @@ rightside {
 @media (max-width: 991px) {
 
     .btdesign {
-        width: 80px;
-    } 
+        width: 140px;
+    }
+
+    .btCache {
+        display: block;
+    }
+
+    .leftSide {
+        display:none;
+    }
+
+    .leftSideMobil {
+        display: block;
+    }
+
+    .rightSide {
+        display:none;
+    }
+
+    .rightSideMobil {
+        display: block;
+    }
+    
 }
 
 @media (max-width: 767px) {
 
-     .btdesign {
-        width: 60px;
-    }
+    
 }
 
 @media (max-width: 400px) {
 
-    .btdesign {
-        width: 60px;
-    }
+ 
 }
 

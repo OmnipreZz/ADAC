@@ -1,48 +1,93 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
 
-    <h1>Post</h1>
-    <div class="card mb-5">
-        <div class="card-header text-center">
-        {{ $post->title }}
+<div class="card mb-3 shadow">
+        <div class="m-2">
+            @auth
+                @if(!$post->fav)
+                <a href="{{route('favoriteStore',$post->id)}}" class="m-2" role="button"><i class="far fa-star fa-2x textPurple"></i></a>
+                @else
+                <a href="{{route('favoriteDestroy',$post->id)}}" class="m-2" role="button"><i class="fas fa-star fa-2x text-warning"></i></a>
+                @endif
+            @endauth
+            <span class="badge badge-primary">{{$post->category->name}}</span>
+        </div>
+        <div class="card-body text-center bg-white text-secondary">
+            <h2>{{ $post->title }}</h2><br>
+            <p class="card-text mb-3">{{ $post->content }}</p>
+        </div>
+        <div class="card-footer mx-5 my-3 bg-white">
+            <p class="card-text postedBy">Posté par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
+
+            @if ($post->updated_at !=  $post->created_at )
+
+            <p class="card-text postedBy">Modifié par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->updated_at)) }} à {{ date('H:i', strtotime($post->updated_at)) }}</p>
+
+            @endif
+
+            <div class="text-right">
+            @auth
+            
+            @if ($post->author ==  Auth::user()->name || Auth::user()->role_id == 1 )
+
+            <a href="{{route('postEdit',$post->id)}}" class="btn btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
+            @endif
+
+            
+            @if (Auth::user()->role_id == 1)
+            <a href="{{route('postDestroy',$post->id)}}" class="btn btn persoPurple" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
+            @endif
+
+
+            @endauth
+            <a href="{{route('postShow',$post->id)}}" class="btn persoPurple" role="button" title="Voir le post"><i class="fas fa-eye text-white"></i></a>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <p class="card-text">{{ $post->content }}</p>
-    </div>
-<div class="card-footer">
-    <p class="card-text">Posted by {{ $post->author }} at {{ $post->created_at}}</p>
-    @if ($post->updated_at !=  $post->created_at )
-    <p class="card-text">Updated at {{ $post->updated_at}}</p>
-    @endif
-    @auth
-    @if ($post->author ==  Auth::user()->name )
-    <a href="" class="btn btn-danger" role="button">Delete</a>
-    <a href="" class="btn btn-primary" role="button">Update</a>
-    @endif
-    @endauth
-</div>
-</div>
-<h1>Comments</h1>
+
+<h1>Commentaires</h1>
 @foreach ($hisComments as $comment)
-<div class="card mb-5">
-    <div class="card-body">
-        <p class="card-text">{{$comment->content}}</p>
+
+<div class="card mb-3 shadow">
+    <div class="card-body text-center bg-white text-secondary">
+        <p class="card-text mb-3">{{ $comment->content }}</p>
     </div>
-    <div class="card-footer">
-        <p class="card-text">Posted by {{ $comment->author }} at {{ $comment->created_at}}</p>
-                        <!-- <a href="" class="btn btn-danger" role="button">Delete</a>
-                            <a href="" class="btn btn-primary" role="button">Update</a> -->
+    <div class="card-footer mx-5 my-3 bg-white">
+        <p class="card-text postedBy">Posté par {{ $comment->author }} le {{ date('d/m/Y', strtotime($comment->created_at)) }} à {{ date('H:i', strtotime($comment->created_at)) }}</p>
+
+        @if ($comment->updated_at !=  $comment->created_at )
+
+        <p class="card-text postedBy">Modifié par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->updated_at)) }} à {{ date('H:i', strtotime($post->updated_at)) }}</p>
+
+        @endif
+
+        <div class="text-right">
+            @auth
+            
+            @if ($comment->author ==  Auth::user()->name || Auth::user()->role_id == 1 )
+
+            <a href="{{route('postEdit',$post->id)}}" class="btn btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
+            @endif
+
+            
+            @if (Auth::user()->role_id == 1)
+            <a href="{{route('postDestroy',$post->id)}}" class="btn btn persoPurple" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
+            @endif
+
+
+            @endauth
+        </div>
     </div>
 </div>
 @endforeach
 
 <div class="container mb-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col">
             <div class="card">
-                <div class="card-header">Create your comment</div>
+                <div class="card-header">Poser une question</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{route('commentStore',$post->id)}}" aria-label="">
