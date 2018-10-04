@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,9 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        //
+        $subCategories = Subcategory::all();
+
+        return view('subCategory.index',compact('subCategories'));
     }
 
     /**

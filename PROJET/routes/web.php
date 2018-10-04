@@ -61,3 +61,8 @@ Route::post('/categories/store', 'CategoryController@store')->name('category_sto
 Route::get('/category/edit/{id}', 'CategoryController@edit')->name('category_edit');
 Route::post('/category/update/{id}', 'CategoryController@update')->name('category_update');
 Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('category_destroy');
+
+// Routes concernant la gestion des sous catégories
+Route::get('/subcategories', 'SubcategoryController@index')->name('subcategory_index');
+Route::get('/subcategories/{id}', 'SubcategoryController@show')->name('subcategory_show');
+Route::get('/subcategories/create', 'SubcategoryController@create')->name('subcategory_create');

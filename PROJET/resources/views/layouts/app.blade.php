@@ -86,7 +86,7 @@
                     <div class="cssSide my-3 shadow bg-white text-center">
 
  <!--//////////////BUTTON LEFT SIDE/////////////////-->
-                        
+                    @if (isset($categories))   
                     @foreach ($categories as $cat)
                         <!-- <a href="{{route('category_show', $cat->id)}}">{{$cat->name}}</a> -->
                         <div class="my-1">
@@ -109,7 +109,9 @@
                             </ul>
                         </div>
                     @endforeach
-
+                    @else
+                        La variable $categories n'a pas étée passée à cette page
+                    @endif
                     </div>
                 </leftside>
 
@@ -139,8 +141,9 @@
                         <hr>
                         
                         <h5>Sous catégories</h5>
-                        <a href="{{route('category_index')}}" class="">Index Sous categories</a><br>
-                        <a href="{{route('category_show', 1)}}" class="">Voir une Sous categories</a><br>
+                        <a href="{{route('subcategory_index')}}" class="">Index Sous categories</a><br>
+                        <a href="{{route('subcategory_create')}}" class="">Créer une sous categorie</a><br>
+                        <a href="{{route('subcategory_show', 1)}}" class="">Voir une Sous categorie</a><br>
                         <hr>
 
                     </div>

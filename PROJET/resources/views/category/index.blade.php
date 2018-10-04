@@ -11,7 +11,18 @@
                 @auth
                 <ul>
                     @foreach ($categories as $cat)
-                        <li>{{$cat->id}} // <a href="{{route('category_show', $cat->id)}}">{{$cat->name}}</a></li>
+                        <li>
+                            {{$cat->id}} // <a href="{{route('category_show', $cat->id)}}">{{$cat->name}}</a>
+                            <!-- <ul>
+                                @if ($cat->subcategories()->get())
+                                    @foreach ($cat->subcategories()->get() as $index => $subCategory)
+                                        <li>{{ $index }} <a href={{ route('subcategory_show', $subCategory->id ) }}>{{ $subCategory->name }}</a></li>
+                                    @endforeach
+                                @else
+                                    Cette catégorie n'a pas encore de sous catégories
+                                @endif
+                            </ul> -->
+                        </li>
                     @endforeach
                 </ul>
                 @endauth

@@ -10,12 +10,11 @@
         </div>
     <div class="card-body">
     <p class="card-text">
-        <h5>Sous catégories associées</h5>
+        <h1></h1>
         <ul>
             @if ($subCategories)
                 @foreach ($subCategories as $index => $subCategory)
-                    <li>{{ $index }} <a href={{ route('subcategory_show', $subCategory->id ) }}>{{ $subCategory->name }}</a></li>
-                    <!-- <li>{{ $index }} {{ $subCategory->name }}</li> -->
+                    <li>{{ $index }} {{ $subCategory }}</li>
                 @endforeach
             @else
                 Cette catégorie n'a pas encore de sous catégories
