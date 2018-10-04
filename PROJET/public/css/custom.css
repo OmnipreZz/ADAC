@@ -26,6 +26,10 @@ li {
     background-color: #E91E63;
 }
 
+.logoMobil {
+    display: none;
+}
+
 .lightMain {
     height: 10vh;
     z-index: 3;
@@ -148,6 +152,15 @@ main {
 }
 
 @media (max-width: 400px) {
+    
+    .logoMobil {
+        display: block;
+        text-align: left;
+        border-radius: none;
+    }
 
+    .logoNav {
+        display: none;
+    }
 }
 
