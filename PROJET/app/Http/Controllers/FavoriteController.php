@@ -41,7 +41,7 @@ class FavoriteController extends Controller
             'post_id' => $id,
             'user_id' => Auth::user()->id
         ]);
-        return redirect()->route('postIndex');
+        return redirect()->back();
     }
 
     /**

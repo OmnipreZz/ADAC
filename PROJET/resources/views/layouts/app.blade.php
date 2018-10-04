@@ -45,26 +45,26 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                        
+                            
                         </ul>
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    @if (Route::has('register'))
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    @endif
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endif
+                            </li>
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
+                                </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
@@ -74,17 +74,16 @@
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
                 </div>
             </nav>
 
@@ -321,7 +320,13 @@
                     <div class="stickyBloc">
                     </div>
                     <div class="cssSide my-3 shadow bg-white">
+                        <h3>{{Auth::user()->name}}</h3>
+                        <a href="{{route('postIndex')}}" class="btn">Voir tous les posts</a>
+                        <a href="{{route('postFavorites')}}" class="btn">Voir mes favoris</a>
+                        @if(in_array(Auth::user()->role_id,[1,2]))
                         <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+                        <a href="{{route('postMyPosts')}}" class="btn">Voir mes posts</a>
+                        @endif
                     </div>
                 </div>
 
@@ -331,15 +336,18 @@
                     </div>
                     <div id="wrapper1">
                         <div class="cssSide my-3 shadow bg-white" id="sidebar-wrapper1">
+                            <h3>{{Auth::user()->name}}</h3>
+                            <a href="{{route('postIndex')}}" class="btn">Voir tous les posts</a>
+                            <a href="{{route('postFavorites')}}" class="btn">Voir mes favoris</a>
+                            @if(in_array(Auth::user()->role_id,[1,2]))
                             <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
+                            <a href="{{route('postMyPosts')}}" class="btn">Voir mes posts</a>
+                            @endif
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-        </div>
-
-    </div>
+</div>
+</div>
 </body>
 </html>
