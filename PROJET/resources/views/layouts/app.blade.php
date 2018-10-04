@@ -109,7 +109,7 @@
                 </div>
 
 <!--//////////////MAIN CONTENT/////////////////-->
-                <main class="col-10 col-lg-7 col-xl-7 py-4">
+                <main class="col-10 col-lg-7">
                     <div class="lightMain fixed-top"></div>
                     @yield('content')
                 </main>

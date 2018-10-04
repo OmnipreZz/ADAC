@@ -33,7 +33,7 @@ li {
 }
 
 main {
-    margin-top: 14vh;
+    margin-top: 17vh;
 }
 
 .stickyBloc {
@@ -47,6 +47,7 @@ main {
 .leftSideMobil {
     height: 100vh;
     display: none;
+    padding: 0
 }
 
 .rightSide {
@@ -56,6 +57,7 @@ main {
 .rightSideMobil {
     height: 100vh;
     display: none;
+    padding: 0;
 }
 
 .cssSide {
@@ -77,7 +79,6 @@ main {
 .btCache {
         display: none;
     }
-
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Posts//////////////////////////////// */
@@ -139,17 +140,14 @@ main {
 
     .rightSideMobil {
         display: block;
-    }
-    
+    }  
 }
 
 @media (max-width: 767px) {
 
-    
 }
 
 @media (max-width: 400px) {
 
- 
 }
 
