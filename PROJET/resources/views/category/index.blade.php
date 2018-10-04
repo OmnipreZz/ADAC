@@ -8,13 +8,13 @@
                 <div class="card-header">{{ __('Toutes les catégories') }}</div>
 
                 <div class="card-body">
-                <!-- @auth
+                @auth
                 <ul>
                     @foreach ($categories as $cat)
-                        <li>{{$cat}}</li>
+                        <li>{{$cat->id}} // <a href="{{route('category_show', $cat->id)}}">{{$cat->name}}</a></li>
                     @endforeach
                 </ul>
-                @endauth -->
+                @endauth
                 </div>
             </div>
         </div>

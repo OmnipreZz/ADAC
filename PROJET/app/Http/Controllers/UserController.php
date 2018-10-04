@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Http\Controllers\Controller;
-// use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Validator;
-// use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Faker\Generator as Faker;
 
 class UserController extends Controller
 {
@@ -21,6 +24,21 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
     }
     
     /**
@@ -43,9 +61,48 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
         $user = User::findOrFail($id);
         return view('user.show', compact('user'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('user.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
+        // $randomPassword = $faker->password;
+        $randomPassword = " password$";
+        $hashedPassword = Hash::make($randomPassword);
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => $hashedPassword,
+        //     // 'role' => $data['role'],
+        // ]);
+
+        return User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $randomPassword,
+            // 'role' => $data['role'],
+        ]);
+
+        return redirect()->route('user_show', $user->id);
     }
 
     /**
@@ -93,6 +150,6 @@ class UserController extends Controller
         // redirect
         // Session::flash('message', 'Successfully deleted the user!');
         // return Redirect::to('postIndex');
-        return redirect()->route('postIndex');
+        return redirect()->route('user_index');
     }
 }

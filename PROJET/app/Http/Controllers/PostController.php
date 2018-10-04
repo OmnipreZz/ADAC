@@ -86,8 +86,6 @@ class PostController extends Controller
         // ->get();
         $hisComments = $post->comments;
 
-
-
         return view('posts.show',compact('post','hisComments'));
     }
 

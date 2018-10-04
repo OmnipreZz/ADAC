@@ -87,107 +87,28 @@
 
  <!--//////////////BUTTON LEFT SIDE/////////////////-->
                         
-                            <!-- boutton instruments -->
-                        <div class="py-4 ml-2">
-                            <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                                Instruments
-                            </button>
+                    @foreach ($categories as $cat)
+                        <!-- <a href="{{route('category_show', $cat->id)}}">{{$cat->name}}</a> -->
+                        <div class="my-1">
+                            <button class="btn btdesign text-white" type="button" data-toggle="collapse" data-target="#collapse{{$cat->id}}" aria-expanded="false" aria-controls="collapse">{{$cat->name}}</button>
                         </div>
-                        <div class="collapse text-left" id="collapseExample1">
-                                <ul>
-                                    <li>
-                                        <a>guitare</a>
-                                    </li>
-                                    <li>
-                                        <a>basse</a>
-                                    </li>
-                                    <li>
-                                        <a>piano</a>
-                                    </li>
-                                    <li>
-                                        <a>synthe</a>
-                                    </li>
-                                    <li>
-                                        <a>batterie</a>
-                                    </li>
-                                    <li>
-                                        <a>chant</a>
-                                    </li>
-                                    <li>
-                                        <a>trompette</a>
-                                    </li>
-                                    <li>
-                                        <a>saxophone</a>
-                                    </li>
-                                    <li>
-                                        <a>clarinette</a>
-                                    </li>
-                                    <li>
-                                        <a>flute</a>
-                                    </li>
-                                    <li>
-                                        <a>eveil</a>
-                                    </li>
-                                    <li>
-                                        <a>accordeon</a>
-                                    </li>
-                                    <li>
-                                        <a>accordeon chromatique</a>
-                                    </li>
-                                    <li>
-                                        <a>diatonique</a>
-                                    </li>
-                                    <li>
-                                        <a>mao</a>
-                                    </li>
-                                    <li>
-                                        <a>harpe</a>
-                                    </li>
-                                    <li>
-                                        <a>cornemuse</a>
-                                    </li>
-                                    <li>
-                                        <a>violon</a>
-                                    </li>
-                                    <li>
-                                        <a>violoncelle</a>
-                                    </li>
-                                </ul>
-                        </div>
-                            <!-- boutton ateliers -->
-                        <div class="pb-4 ml-2">
-                            <button class="btn btdesign text-white shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                                Ateliers
-                            </button>
-                        </div>
-                        <div class="collapse text-left" id="collapseExample2">
+                        <div class="collapse text-left" id="collapse{{$cat->id}}">
                             <ul>
                                 <li>
-                                    <a>trad</a>
+                                    <a>guitare</a>
                                 </li>
                                 <li>
-                                    <a>classique</a>
+                                    <a>basse</a>
                                 </li>
                                 <li>
-                                    <a>rock</a>
+                                    <a>piano</a>
                                 </li>
                                 <li>
-                                    <a>jazz</a>
+                                    <a>synthe</a>
                                 </li>
                             </ul>
                         </div>
-                            <!-- boutton Evenements -->
-                        <div class="pb-4 ml-2">
-                            <button class="btn btdesign text-white shadow-sm" type="button">
-                            Evènements
-                            </button>
-                        </div>
-                            <!-- boutton FM -->
-                        <div class="ml-2">
-                            <button class="btn btdesign text-white shadow-sm" type="button">
-                            F . M
-                            </button>
-                        </div>
+                    @endforeach
 
                     </div>
                 </leftside>
@@ -207,16 +128,19 @@
                         
                         <h5>Utilisateurs</h5>
                         <a href="{{ route('user_index') }}" class="">Index Utilisateurs</a><br>
+                        <a href="{{ route('user_create') }}" class="">Créer un Utilisateurs</a><br>
                         <a href="{{ route('user_show', Auth::user()->id ) }}" class="">Voir un profil d'utilisateur</a><br>
-                        <a href="{{ route('user_edit', Auth::user()->id ) }}" class="">Editer un profil profil</a><br>
-                        <a href="{{ route('user_delete', Auth::user()->id ) }}" class="">!!! Supprimer un profil profil !!!</a><br>
                         <hr>
                     
                         <h5>Categories</h5>
                         <a href="{{route('category_index')}}" class="">Index Categories</a><br>
-                        <a href="{{route('category_index')}}" class="">Voir une Categories</a><br>
-                        <a href="{{route('category_index')}}" class="">Editer une Categories</a><br>
-                        <a href="{{route('category_index')}}" class="">!!! Supprimer une Categories !!!</a><br>
+                        <a href="{{route('category_create')}}" class="">Créer une Categorie</a><br>
+                        <a href="{{route('category_show', 1)}}" class="">Voir une Categorie</a><br>
+                        <hr>
+                        
+                        <h5>Sous catégories</h5>
+                        <a href="{{route('category_index')}}" class="">Index Sous categories</a><br>
+                        <a href="{{route('category_show', 1)}}" class="">Voir une Sous categories</a><br>
                         <hr>
 
                     </div>

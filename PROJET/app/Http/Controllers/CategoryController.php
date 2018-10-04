@@ -25,10 +25,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $categories = Category::all();
+        $categories = Category::all();
 
-        // return view('category.index',compact('categories'));
-        return view('category.index');
+        return view('category.index',compact('categories'));
     }
 
     /**
@@ -38,7 +37,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -49,29 +48,38 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create([
+            'name' => $request->input('name'),
+        ]);
+
+        return redirect()->route('category_show', $category->id);
     }
 
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $subCategories = $category->subcategories();
+        return view('category.show', compact('category', 'subCategories'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  int  $id
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -81,19 +89,27 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->update([
+            "name" => $request->input('name'),
+        ]);
+
+        return redirect()->route('category_show', $category->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  int  $id
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id)
     {
-        //
+        Category::find($id)->delete();
+
+        return redirect()->route('category_index');
     }
 }

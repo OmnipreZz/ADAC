@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Toutes les catégories') }}</div>
+                <div class="card-header">{{ __('Tous les utilisateurs') }}</div>
 
                 <div class="card-body">
                 @auth
