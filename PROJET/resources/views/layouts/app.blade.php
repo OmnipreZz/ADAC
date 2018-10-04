@@ -28,7 +28,7 @@
 <body>
     <div id="app">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm mt-3 ml-3 mr-3">
+            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm mt-3 mx-3">
                 <div class="container">
                     <a class="navbar-brand logo shadow-sm text-white" href="{{ url('/') }}">
                         <i class="fas fa-music ml-3 mr-2"> ...</i> <span class="mr-3">ADAC</span>
@@ -250,12 +250,13 @@
                     <div class="cssSide my-3 shadow bg-white">
 
                         <h3>{{Auth::user()->name}}</h3>
-                        <a href="{{route('postIndex')}}" class="btn">Voir tous les posts</a>
-                        <a href="{{route('postFavorites')}}" class="btn">Voir mes favoris</a>
+                        <a href="{{route('postIndex')}}" class="">Voir tous les posts</a><br>
+                        <a href="{{route('postFavorites')}}" class="">Voir mes favoris</a><br>
                         @if(in_array(Auth::user()->role_id,[1,2]))
-                        <a href="{{route('postCreate')}}" class="btn">Créer un post</a>
-                        <a href="{{route('postMyPosts')}}" class="btn">Voir mes posts</a>
+                        <a href="{{route('postCreate')}}" class="">Créer un post</a><br>
+                        <a href="{{route('postMyPosts')}}" class="">Voir mes posts</a><br>
                         @endif
+                        <hr>
 
                         <h5>Posts</h5>
                         <a href="{{route('postCreate')}}" class="">Créer un post</a><br>
