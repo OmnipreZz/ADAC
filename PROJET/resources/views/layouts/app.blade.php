@@ -97,25 +97,16 @@
 
                     @if (isset($categories))   
                     @foreach ($categories as $cat)
-                        <!-- <a href="{{route('category_show', $cat->id)}}">{{$cat->name}}</a> -->
                         <div class="my-1">
                             <button class="btn btdesign text-white" type="button" data-toggle="collapse" data-target="#collapse{{$cat->id}}" aria-expanded="false" aria-controls="collapse">{{$cat->name}}</button>
-                            <!-- bouton instruments -->
                         </div>
                         <div class="collapse text-left" id="collapse{{$cat->id}}">
                             <ul>
-                                <li>
-                                    <a>guitare</a>
-                                </li>
-                                <li>
-                                    <a>basse</a>
-                                </li>
-                                <li>
-                                    <a>piano</a>
-                                </li>
-                                <li>
-                                    <a>synthe</a>
-                                </li>
+                                @foreach ($cat->subcategories()->get() as $subcat)
+                                    <li>
+                                        <a href="">{{$subcat->name}}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     @endforeach
@@ -142,39 +133,6 @@
                                     <ul>
                                         <li>
                                             <a>guitare</a>
-                                        </li>
-                                        <li>
-                                            <a>basse</a>
-                                        </li>
-                                        <li>
-                                            <a>piano</a>
-                                        </li>
-                                        <li>
-                                            <a>synthe</a>
-                                        </li>
-                                        <li>
-                                            <a>batterie</a>
-                                        </li>
-                                        <li>
-                                            <a>chant</a>
-                                        </li>
-                                        <li>
-                                            <a>trompette</a>
-                                        </li>
-                                        <li>
-                                            <a>saxophone</a>
-                                        </li>
-                                        <li>
-                                            <a>clarinette</a>
-                                        </li>
-                                        <li>
-                                            <a>flute</a>
-                                        </li>
-                                        <li>
-                                            <a>eveil</a>
-                                        </li>
-                                        <li>
-                                            <a>accordeon</a>
                                         </li>
                                         <li>
                                             <a>accordeon chromatique</a>

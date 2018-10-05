@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Subcategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -27,7 +28,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('category.index',compact('categories'));
+        return view('category.index',compact('categories', 'subcategories'));
     }
 
     /**
@@ -69,8 +70,7 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         $category = Category::findOrFail($id);
-        $subCategories = $category->subcategories()->get();
-        return view('category.show', compact('category', 'subCategories', 'categories'));
+        return view('category.show', compact('category', 'categories'));
     }
 
     /**

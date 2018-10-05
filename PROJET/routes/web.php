@@ -14,13 +14,14 @@
 // home page
 Route::get('/', 'PostController@index' )->name('postIndex');
 
+// POST create & store 
+Route::get('post/create','PostController@create')->name('postCreate');
+Route::post('post/create/{catId}','PostController@createWithCat')->name('postCreateWithCat');
+Route::post('post/store','PostController@store')->name('postStore');
+
 // POST edit & update
 Route::get('/post/edit/{id}','PostController@edit')->name('postEdit');
 Route::post('/post/update/{id}','PostController@update')->name('postUpdate');
-
-// POST create & store 
-Route::get('post/create','PostController@create')->name('postCreate');
-Route::post('post/store','PostController@store')->name('postStore');
 
 // POST show
 Route::get('post/show/{id}','PostController@show')->name('postShow');
@@ -72,4 +73,6 @@ Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('catego
 // Routes concernant la gestion des sous catégories
 Route::get('/subcategories', 'SubcategoryController@index')->name('subcategory_index');
 Route::get('/subcategories/{id}', 'SubcategoryController@show')->name('subcategory_show');
-Route::get('/subcategories/create', 'SubcategoryController@create')->name('subcategory_create');
+
+Route::get('/subcategory/create', 'SubcategoryController@create')->name('subcategory_create');
+Route::post('/subcategories/store', 'SubcategoryController@store')->name('subcategory_store');

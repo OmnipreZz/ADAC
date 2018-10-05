@@ -16,6 +16,7 @@ class CommentController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         //
     }
 
@@ -26,6 +27,7 @@ class CommentController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         //
     }
 
@@ -56,6 +58,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
+        $categories = Category::all();
         //
     }
 
@@ -67,6 +70,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
+        $categories = Category::all();
         //
     }
 

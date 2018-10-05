@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Category;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Hash;
@@ -49,8 +50,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $categories = Category::all();
 
-        return view('user.index',compact('users'));
+        return view('user.index',compact('users', 'categories'));
     }
 
     /**
@@ -62,7 +64,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('user.show', compact('user'));
+        $categories = Category::all();
+
+        return view('user.show', compact('user', 'categories'));
     }
 
     /**
@@ -72,7 +76,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $categories = Category::all();
+
+        return view('user.create', compact('categories'));
     }
 
     /**
@@ -114,7 +120,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('user.edit', compact('user'));
+        $categories = Category::all();
+
+        return view('user.edit', compact('user', 'categories'));
     }
     
     /**
@@ -133,6 +141,7 @@ class UserController extends Controller
             'password' => $request->input('password'),
             'updated_at' => $request->input('updated_at'),
         ]);
+        
         return redirect()->route('user_show', $id);
     }
 

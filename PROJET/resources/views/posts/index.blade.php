@@ -14,10 +14,13 @@
                 <a href="{{route('favoriteDestroy',$post->id)}}" class="m-2" role="button"><i class="fas fa-star fa-2x text-warning"></i></a>
                 @endif
             @endauth
-            <span class="badge badge-primary">{{$post->category->name}}</span>
+            <span class="h4"><span class="badge badge-primary">{{$post->category->name}}</span></span>
+            @foreach ($post->subcategories as $subcatxxx)
+                <span class="h4"><span class="badge badge-secondary">{{$subcatxxx->name}}</span></span>
+            @endforeach
         </div>
         <div class="card-body text-center bg-white">
-            <h2>{{ $post->title }}</h2><br>
+            <h2><a href={{ route('postShow', $post->id) }}>{{ $post->title }}</a></h2><br>
             <p class="card-text mb-3">{{ $post->content }}</p>
         </div>
         <div class="card-footer mx-5 my-3 bg-white">

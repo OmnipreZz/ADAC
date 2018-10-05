@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Subcategory;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,9 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('subCategory.create', compact('categories'));
     }
 
     /**
@@ -57,9 +60,12 @@ class SubcategoryController extends Controller
      * @param  \App\Subcategory  $subcategory
      * @return \Illuminate\Http\Response
      */
-    public function show(Subcategory $subcategory)
+    public function show(Subcategory $subcategory, $id)
     {
-        //
+        $categories = Category::all();
+
+        $subCategory = Subcategory::findOrFail($id);
+        return view('subCategory.show', compact('subCategory', 'categories'));
     }
 
     /**
@@ -70,6 +76,7 @@ class SubcategoryController extends Controller
      */
     public function edit(Subcategory $subcategory)
     {
+        $subCategories = Subcategory::all();
         //
     }
 

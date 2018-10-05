@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Subcategory;
 use App\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,16 +33,18 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('category')->with('favorites')->orderBy('id', 'desc')->paginate(5);
-
+        
         foreach($posts as $post)
         {
             if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
-                $post->fav = true;
+            $post->fav = true;
             else
-                $post->fav = false;
+            $post->fav = false;
         }
+        
+        $categories = Category::all();
 
-        return view('posts.index',compact('posts'));
+        return view('posts.index',compact('posts', 'categories'));
     }
 
     /**
@@ -51,8 +54,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name','id');
-        return view('posts.create',compact('categories'));
+        // $categories = Category::pluck('name','id');
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $encoded_subcats = json_encode(Subcategory::all());
+
+        return view('posts.create',compact('categories', 'subcategories', 'encoded_subcats'));
     }
 
     /**
@@ -68,8 +75,10 @@ class PostController extends Controller
             'content' => $request->input('content'),
             'author' => Auth::user()->name,
             'user_id' => Auth::user()->id,
-            'category_id' => $request->input('category')
+            'category_id' => $request->input('category'),
         ]);
+        $post->subcategories()->attach($request->input('subcats'));
+        // $post->subcategories()->attach(1);
 
         return redirect()->route('postIndex');
     }
@@ -135,7 +144,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::find($id)->delete();
-        return $this->index();
+        return redirect()->route('postIndex');
     }
 
     public function myfavorites()
