@@ -49,5 +49,10 @@ class Post extends Model
         return $this->favorites->pluck('user_id')->all();
     }
 
+    public function files()
+    {
+        return $this->hasMany('App\File');
+    }
+
     
 }

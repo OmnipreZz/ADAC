@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\File;
 use App\Category;
 use App\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -31,8 +33,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        // paginate all posts by ID
         $posts = Post::with('category')->with('favorites')->orderBy('id', 'desc')->paginate(5);
 
+        // for each post , check if it's one of the current user favorite
         foreach($posts as $post)
         {
             if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
@@ -62,7 +66,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $post = Post::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
@@ -71,7 +75,28 @@ class PostController extends Controller
             'category_id' => $request->input('category')
         ]);
 
+        // upload files into storage and store it in DB
+        foreach ($request->file as $file) {
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('uploads',$filename);
+            Storage::put($filename, $file, 'public');
+
+            $file = File::create([
+            'post_id' => $post->id,
+            'filename' => $filename
+        ]);
+
+
+        }
+
         return redirect()->route('postIndex');
+    }
+
+    public function downloadFile($filename)
+    {
+        $pathToFile= storage_path() . '/app/public/uploads/' . $filename;
+
+        return response()->download($pathToFile);
     }
 
     /**
@@ -84,13 +109,15 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $hisComments = $post->comments;
+        $hisFiles = $post->files;
 
+        // for each post , check if it's one of the current user favorite
         if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
                 $post->fav = true;
             else
                 $post->fav = false;
 
-        return view('posts.show',compact('post','hisComments'));
+        return view('posts.show',compact('post','hisComments','hisFiles'));
     }
 
     /**
@@ -140,9 +167,13 @@ class PostController extends Controller
 
     public function myfavorites()
     {
+        // get all current user favorite (from associative table)
         $favorites = Auth::user()->favorites()->pluck('post_id')->all();
+
+        // get all favorite posts from current user
         $posts = Post::whereIn('id',$favorites)->orderBy('id', 'desc')->paginate(5);
 
+        // for each post , check if it's one of the current user favorite
         foreach($posts as $post)
         {
             if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
@@ -156,8 +187,10 @@ class PostController extends Controller
 
     public function myPosts()
     {
+        // get all posts written by current user
         $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
 
+        // for each post , check if it's one of the current user favorite
         foreach($posts as $post)
         {
             if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
@@ -168,4 +201,5 @@ class PostController extends Controller
 
         return view('posts.index',compact('posts'));
     }
+
 }
