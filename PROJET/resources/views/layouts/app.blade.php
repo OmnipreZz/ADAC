@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/png" href="{{asset('logo.png')}}" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,10 +29,10 @@
 <body>
     <div id="app">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm mt-3 mx-3">
+            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand logo shadow-sm text-white" href="{{ url('/') }}">
-                        <i class="fas fa-music ml-3 mr-2"> ...</i> <span class="mr-3">ADAC</span>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img class="d-inline-block align-top" height="50" src="{{asset('logo.png')}}" alt="ADAC logo">
                     </a>
 
                     <button href="#menu-toggle" id="menu-toggle" class="btn btCache persoPurple text-white rounded-circle" role="button"><i class="fas fa-angle-left"></i></button>
