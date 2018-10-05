@@ -1,7 +1,28 @@
 
 <div class="container-fluid text-center my-3">
 
-    <h3 class="nameTitle shadow-sm">{{Auth::user()->name}}</h3>
+
+    <div class="my-1">
+        <h3 class="nameTitle shadow-sm" type="button" data-toggle="collapse" data-target="#collapseProfil" aria-expanded="false" aria-controls="collapse">{{Auth::user()->name}}</h3>
+    </div>
+    <div class="collapse text-left" id="collapseProfil">
+            <ul>
+                <li>
+                    <a class="" href="{{ route('user_show', Auth::user()->id ) }}">Mon profil</a>
+                </li>
+                <li>
+                    <a class="" href="{{ route('user_edit', Auth::user()->id ) }}">Editer mon profil</a>
+                </li>
+                <li>
+                    <a class="" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                    </a>
+                </li>
+            </ul>
+    </div>
+
+
     <hr>
     <p>Bienvenue sur le site de l'ADAC, ici tu vas te sentir bien mon gars !</p>
     <hr>
@@ -25,10 +46,10 @@
     <div class="collapse text-left" id="collapseUser">
             <ul>
                 <li>
-                    <a href="{{ route('user_index') }}" class="">Index Utilisateurs</a><br>
+                    <a href="{{ route('user_index') }}" class="">Index Utilisateurs</a>
                 </li>
                 <li>
-                    <a href="{{ route('user_create') }}" class="">Créer un Utilisateurs</a><br>
+                    <a href="{{ route('user_create') }}" class="">Créer un Utilisateurs</a>
                 </li>
                 <li>
                     <a href="{{ route('user_show', Auth::user()->id ) }}" class="">Voir un profil d'utilisateur</a>

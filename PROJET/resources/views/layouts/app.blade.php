@@ -40,9 +40,9 @@
                     <button href="#menu-toggle" id="menu-toggle" class="btn btCache persoPurple text-white rounded-circle ml-auto mr-2" role="button"><i class="fas fa-angle-left"></i></button>
                     <button href="#menu-toggle1" id="menu-toggle1" class="btn btCache persoPurple text-white rounded-circle mr-4" role="button"><i class="fas fa-angle-right"></i></button>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span> 
-                    </button>
+                    </button> -->
                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->

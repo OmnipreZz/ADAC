@@ -96,6 +96,12 @@ main {
     background: linear-gradient(45deg, #CFD8DC, #BDBDBD);
     border-radius: 25px;
 }
+
+.nameTitle:hover {
+    cursor: pointer;
+    color: #E91E63;
+    background: linear-gradient(45deg, #BDBDBD, #9E9E9E);
+}
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Posts//////////////////////////////// */
@@ -125,7 +131,7 @@ main {
 /* ////////////////////////////////@MEDIA//////////////////////////////// */
 @media (max-width: 1199px) {
     .btdesign {
-        width: 100px;
+        width: 110px;
     }
 }
 
