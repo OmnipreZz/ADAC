@@ -18,6 +18,12 @@
             <h2>{{ $post->title }}</h2><br>
             <p class="card-text mb-3">{{ $post->content }}</p>
         </div>
+        <div class="card-body bg-white text-secondary">
+            @foreach($hisFiles as $file)
+            <div><a href="{{route('fileDownload',$file->filename)}}" class="btn btn-primary mb-1">Télécharger</a>{{" ".$file->filename}}</div>
+            @endforeach
+        </div>
+
         <div class="card-footer mx-5 my-3 bg-white">
             <p class="card-text postedBy">Posté par {{ $post->author }} le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
 
