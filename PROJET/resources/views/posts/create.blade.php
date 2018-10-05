@@ -6,10 +6,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Créer une catégorie</div>
+                <div class="card-header">Créer un post</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('postStore') }}" aria-label="">
+                    <form method="POST" action="{{ route('postStore') }}" aria-label="" enctype='multipart/form-data'>
                         @csrf
 
                         <div class="form-group row">
@@ -26,6 +26,15 @@
 
                             <div class="col-md-6">
                                 <textarea id="content" class="form-control" name="content" rows="10" required style="resize:none;"></textarea>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="file" class="col-sm-4 col-form-label text-md-right">{{ __('Fichiers') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="file" type="file" class="form-control" name="file[]" multiple>
 
                             </div>
                         </div>

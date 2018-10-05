@@ -2,9 +2,7 @@
 
 @section('content')
 
-    {{ $posts->links() }}
     @foreach ($posts as $post)
-
     <div class="card mb-3 shadow">
         <div class="m-2">
             @auth

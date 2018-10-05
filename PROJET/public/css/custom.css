@@ -5,6 +5,10 @@
 li {
     list-style-type: none;
 }
+
+p {
+    color: #455A64;
+}
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Login//////////////////////////////// */
@@ -26,20 +30,30 @@ li {
     background-color: #E91E63;
 }
 
+.logoMobil {
+    display: none;
+}
+
 .lightMain {
     height: 10vh;
-    z-index: 1;
+    z-index: 3;
     background-color: #CFD8DC;
 }
 
 main {
-    margin-top: 14vh;
+    margin-top: 17vh;
 }
 
 .stickyBloc {
     height: 12vh;
 }
 
+.btCache {
+        display: none;
+    }
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////SideBar//////////////////////////////// */
 .leftSide {
     height: 100vh;
 }
@@ -47,6 +61,7 @@ main {
 .leftSideMobil {
     height: 100vh;
     display: none;
+    padding: 0
 }
 
 .rightSide {
@@ -56,6 +71,7 @@ main {
 .rightSideMobil {
     height: 100vh;
     display: none;
+    padding: 0;
 }
 
 .cssSide {
@@ -74,10 +90,18 @@ main {
     background-color: #7C4DFF;
 }
 
-.btCache {
-        display: none;
-    }
+.nameTitle {
+    font-family: 'Merriweather', serif;
+    color: #C2185B;
+    background: linear-gradient(45deg, #CFD8DC, #BDBDBD);
+    border-radius: 25px;
+}
 
+.nameTitle:hover {
+    cursor: pointer;
+    color: #E91E63;
+    background: linear-gradient(45deg, #BDBDBD, #9E9E9E);
+}
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Posts//////////////////////////////// */
@@ -102,16 +126,12 @@ main {
     font-family: 'Merriweather', serif;
     color: #5D4037;
 }
-
-.card-body p {
-    color: #607D8B;
-}
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////@MEDIA//////////////////////////////// */
 @media (max-width: 1199px) {
     .btdesign {
-        width: 100px;
+        width: 110px;
     }
 }
 
@@ -139,17 +159,23 @@ main {
 
     .rightSideMobil {
         display: block;
-    }
-    
+    }  
 }
 
 @media (max-width: 767px) {
 
-    
 }
 
 @media (max-width: 400px) {
+    
+    .logoMobil {
+        display: block;
+        text-align: left;
+        border-radius: none;
+    }
 
- 
+    .logoNav {
+        display: none;
+    }
 }
 
