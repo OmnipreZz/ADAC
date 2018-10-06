@@ -22,7 +22,13 @@
             <p class="card-text mb-3">{{ $post->content }}</p>
         </div>
         <div class="card-footer mx-5 my-3 bg-white">
-            <p class="card-text postedBy">Posté par<a href="{{ route('user_show',$post->user_id)}}"> {{ $post->author }}</a> le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
+            <p class="card-text postedBy">Posté par
+                @if (Auth::user()->role_id == 1)
+                <a href="{{ route('user_show',$post->user_id)}}"> {{ $post->author }}</a>
+                @else
+                {{ $post->author }}
+                @endif 
+                 le {{ date('d/m/Y', strtotime($post->created_at)) }} à {{ date('H:i', strtotime($post->created_at)) }}</p>
 
             @if ($post->updated_at !=  $post->created_at )
 
