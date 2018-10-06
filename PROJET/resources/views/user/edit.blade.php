@@ -39,6 +39,8 @@
                             </div>
                         </div>
 
+                        @if (Auth::user()->role_id == 1)
+
                         <div class="form-group row">
                             <label for="exampleFormControlSelect2" class="col-md-4 col-form-label text-md-right">Rôle de l'utilisateur</label>
                             <div class="col-md-6">
@@ -49,13 +51,16 @@
                                 </select>
                             </div>
                         </div>
+                        @endif
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-outline-success">
                                     {{ __('Valider') }}
                                 </button>
+                                @if (Auth::user()->role_id == 1 && Auth::user()->id != $user->id)
                                 <a href="{{ route ('user_delete', $user->id) }}" class="btn btn-outline-danger">Supprimer le profil</a>
+                                @endif
                             </div>
                         </div>
                         
