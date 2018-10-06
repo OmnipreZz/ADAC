@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ADAC') }}</title>
+    <title>ADAC</title>
     <link rel="icon" type="image/png" href="{{asset('logo.png')}}" />
 
     <!-- Scripts -->
