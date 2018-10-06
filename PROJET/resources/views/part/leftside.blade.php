@@ -11,7 +11,7 @@
             <ul>
                 @foreach ($cat->subcategories()->get() as $subcat)
                     <li>
-                        <a href="">{{$subcat->name}}</a>
+                        <a href="{{ route('posts_from', $subcat->id) }}">{{$subcat->name}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -21,4 +21,5 @@
         La variable $categories n'a pas étée passée à cette page
     @endif
 
+@endif
 </div>

@@ -177,6 +177,8 @@ class PostController extends Controller
 
     public function myfavorites()
     {
+        $categories = Category::all();
+
         // get all current user favorite (from associative table)
         $favorites = Auth::user()->favorites()->pluck('post_id')->all();
 
@@ -192,7 +194,7 @@ class PostController extends Controller
                 $post->fav = false;
         }
 
-        return view('posts.index',compact('posts')); 
+        return view('posts.index',compact('posts', 'categories')); 
     }
 
     public function myPosts()
