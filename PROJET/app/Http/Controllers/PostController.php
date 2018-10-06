@@ -202,6 +202,9 @@ class PostController extends Controller
 
     public function myPosts()
     {
+
+        $categories = Category::all();
+
         // get all posts written by current user
         $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
 
@@ -214,7 +217,7 @@ class PostController extends Controller
                 $post->fav = false;
         }
 
-        return view('posts.index',compact('posts'));
+        return view('posts.index',compact('posts','categories'));
     }
 
 }
