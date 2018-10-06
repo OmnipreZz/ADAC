@@ -32,7 +32,7 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
                 <div class="container">
                     <a class="navbar-brand logo logoNav shadow-sm text-white" href="{{ url('/') }}">
-                        <img class="d-inline-block align-top" height="50" src="{{asset('logo.png')}}" alt="ADAC logo">
+                        <img class="d-inline-block align-top" height="40" src="{{asset('logo.png')}}" alt="ADAC logo">
                         <span class="mr-3">ADAC</span>
                     </a>
                     <a class="navbar-brand logo logoMobil shadow-sm text-white rounded-circle" href="{{ url('/') }}">

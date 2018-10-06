@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Subcategory;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Storage;
 
 class SubcategoryController extends Controller
 {
@@ -26,9 +29,23 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $subCategories = Subcategory::all();
 
-        return view('subCategory.index',compact('subCategories'));
+        return view('subCategory.index',compact('subCategories', 'categories'));
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function posts_from(Subcategory $subcategory, $id)
+    {
+        $categories = Category::all();
+        $posts = Subcategory::findOrFail($id)->posts()->orderBy('id', 'desc')->paginate(5);
+
+        return view('posts.index',compact('posts', 'categories'));
     }
 
     /**
