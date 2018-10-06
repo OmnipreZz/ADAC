@@ -20,6 +20,5 @@
     @else
         La variable $categories n'a pas étée passée à cette page
     @endif
-
 @endif
 </div>
