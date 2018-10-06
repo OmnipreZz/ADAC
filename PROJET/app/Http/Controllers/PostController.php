@@ -120,13 +120,16 @@ class PostController extends Controller
         $hisComments = $post->comments;
         $hisFiles = $post->files;
 
+        $categories = Category::all();
+
+
         // for each post , check if it's one of the current user favorite
         if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
                 $post->fav = true;
             else
                 $post->fav = false;
 
-        return view('posts.show',compact('post','hisComments','hisFiles'));
+        return view('posts.show',compact('post','hisComments','hisFiles','categories'));
     }
 
     /**
