@@ -120,13 +120,16 @@ class PostController extends Controller
         $hisComments = $post->comments;
         $hisFiles = $post->files;
 
+        $categories = Category::all();
+
+
         // for each post , check if it's one of the current user favorite
         if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
                 $post->fav = true;
             else
                 $post->fav = false;
 
-        return view('posts.show',compact('post','hisComments','hisFiles'));
+        return view('posts.show',compact('post','hisComments','hisFiles','categories'));
     }
 
     /**
@@ -199,6 +202,9 @@ class PostController extends Controller
 
     public function myPosts()
     {
+
+        $categories = Category::all();
+
         // get all posts written by current user
         $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
 
@@ -211,7 +217,7 @@ class PostController extends Controller
                 $post->fav = false;
         }
 
-        return view('posts.index',compact('posts'));
+        return view('posts.index',compact('posts','categories'));
     }
 
 }
