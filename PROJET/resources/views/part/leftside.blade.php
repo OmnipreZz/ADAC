@@ -21,5 +21,24 @@
         La variable $categories n'a pas étée passée à cette page
     @endif
 
+    <hr>
+
+    <div class="my-1">
+        <form method="POST" action="{{ route('postSearch') }}" aria-label="">
+                        @csrf
+
+                        <div class="form-group">
+
+                                <input id="word" type="text" class="form-control" name="word" required autofocus placeholder="Saisir un mot clé">
+
+                        </div>
+
+                        <div class="form-group mb-0">
+                                <button type="submit" class="btn btn-primary">
+                                    Chercher
+                                </button>
+                        </div>
+    </div>
+
 @endif
 </div>

@@ -26,18 +26,16 @@
     <hr>
     <p>Bienvenue sur le site de l'ADAC, ici tu vas te sentir bien mon gars !</p>
     <hr>
-    <a href="{{route('postIndex')}}" class="">Voir tous les posts</a><br>
-    <a href="{{route('postFavorites')}}" class="">Voir mes favoris</a><br>
+    <a href="{{route('postIndex')}}" class="btn btdesign text-white mb-1">Voir tous les posts</a><br>
+    <a href="{{route('postFavorites')}}" class="btn btdesign text-white mb-1">Voir mes favoris</a><br>
     @if(in_array(Auth::user()->role_id,[1,2]))
-    <a href="{{route('postCreate')}}" class="">Créer un post</a><br>
-    <a href="{{route('postMyPosts')}}" class="">Voir mes posts</a><br>
-    @endif
     <hr>
-
-    <!-- /////////CREER POST// -->
-    <a href="{{route('postCreate')}}" class="btn btdesign text-white">Créer un post</a>
+    <a href="{{route('postCreate')}}" class="btn btdesign text-white mb-1">Créer un post</a><br>
+    <a href="{{route('postMyPosts')}}" class="btn btdesign text-white mb-1">Voir mes posts</a><br>
+    @endif
 
     <!-- /////////ADMIN///////// -->
+    @if(Auth::user()->role_id==1)
     <hr>
     <div class="my-1">
         <button class="btn btdesign text-white" type="button" data-toggle="collapse" data-target="#collapseUser" aria-expanded="false" aria-controls="collapse">Utilisateurs
@@ -46,13 +44,10 @@
     <div class="collapse text-left" id="collapseUser">
             <ul>
                 <li>
-                    <a href="{{ route('user_index') }}" class="">Index Utilisateurs</a>
+                    <a href="{{ route('user_index') }}" class="">Tous les utilisateurs</a>
                 </li>
                 <li>
-                    <a href="{{ route('user_create') }}" class="">Créer un Utilisateurs</a>
-                </li>
-                <li>
-                    <a href="{{ route('user_show', Auth::user()->id ) }}" class="">Voir un profil d'utilisateur</a>
+                    <a href="{{ route('user_create') }}" class="">Créer un utilisateur</a>
                 </li>
             </ul>
     </div>
@@ -64,24 +59,19 @@
     <div class="collapse text-left" id="collapseCat">
             <ul>
                 <li>
-                    <a href="{{route('category_index')}}" class="">Index Categories</a>
+                    <a href="{{route('category_index')}}" class="">Voir les catégories</a>
                 </li>
                 <li>
-                    <a href="{{route('category_create')}}" class="">Créer une Categorie</a>
+                    <a href="{{route('category_create')}}" class="">Créer une catégorie</a>
                 </li>
                 <li>
-                    <a href="{{route('category_show', 1)}}" class="">Voir une Categorie</a>
+                    <a href="{{route('subcategory_index')}}" class="">Voir les sous-categories</a>
                 </li>
                 <li>
-                    <a href="{{route('subcategory_index')}}" class="">Index Sous categories</a>
-                </li>
-                <li>
-                    <a href="{{route('subcategory_create')}}" class="">Créer une sous categorie</a>
-                </li>
-                <li>
-                   <a href="{{route('subcategory_show', 1)}}" class="">Voir une Sous categorie</a>
+                    <a href="{{route('subcategory_create')}}" class="">Créer une sous-catégorie</a>
                 </li>
             </ul>
     </div>
+    @endif
 
 </div>
