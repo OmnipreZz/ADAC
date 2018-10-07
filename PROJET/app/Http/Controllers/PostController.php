@@ -58,12 +58,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        // $categories = Category::pluck('name','id');
         $categories = Category::all();
         $subcategories = Subcategory::all();
-        $encoded_subcats = json_encode(Subcategory::all());
 
-        return view('posts.create',compact('categories', 'subcategories', 'encoded_subcats'));
+        return view('posts.create',compact('categories', 'subcategories'));
     }
 
     /**
@@ -137,11 +135,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        // $categories = Category::pluck('name','id');
+        $subcategories = Subcategory::all();
         $categories = Category::all();
         $post = Post::findOrFail($id);
         $hisCategory = $post->category;
-        return view('posts.edit', compact('post','categories','hisCategory'));
+        return view('posts.edit', compact('post','categories','subcategories','hisCategory'));
     }
 
     /**
