@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-use Faker\Generator as Faker;
+use Faker\Factory as Faker;
 
 class UserController extends Controller
 {
@@ -89,12 +89,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        $faker = Faker::create();
         $randomPassword = $faker->password;
         // $randomPassword = " password$";
         $hashedPassword = Hash::make($randomPassword);
 
-        return User::create([
+        $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => $hashedPassword,
