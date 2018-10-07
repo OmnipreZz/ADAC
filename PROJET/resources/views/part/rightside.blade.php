@@ -8,13 +8,13 @@
     <div class="collapse text-left" id="collapseProfil">
             <ul>
                 <li>
-                    <a class="" href="{{ route('user_show', Auth::user()->id ) }}">Mon profil</a>
+                    <a href="{{ route('user_show', Auth::user()->id ) }}" class="btn btdesign text-white mb-1">Mon profil</a>
                 </li>
                 <li>
-                    <a class="" href="{{ route('user_edit', Auth::user()->id ) }}">Editer mon profil</a>
+                    <a class="btn btdesign text-white mb-1" href="{{ route('user_edit', Auth::user()->id ) }}">Editer mon profil</a>
                 </li>
                 <li>
-                    <a class="" href="{{ route('logout') }}"
+                    <a class="btn btdesign text-white mb-1" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                     </a>
