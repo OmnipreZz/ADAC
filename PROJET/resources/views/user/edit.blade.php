@@ -39,15 +39,41 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="text" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ $user->password }}" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         @if (Auth::user()->role_id == 1)
 
                         <div class="form-group row">
                             <label for="exampleFormControlSelect2" class="col-md-4 col-form-label text-md-right">Rôle de l'utilisateur</label>
                             <div class="col-md-6">
                                 <select class="form-control" id="exampleFormControlSelect2">
-                                    <option>Elève</option>
-                                    <option>Professeur</option>
-                                    <option>Administrateur</option>
+                                    <option
+                                    @if ($user->role_id == 3)
+                                    {{'selected'}}
+                                    @endif
+                                    value="3" >Elève</option>
+                                    <option
+                                    @if ($user->role_id == 2)
+                                    {{'selected'}}
+                                    @endif
+                                    value="2">Professeur</option>
+                                    <option
+                                    @if ($user->role_id == 1)
+                                    {{'selected'}}
+                                    @endif
+                                    value="1">Administrateur</option>
                                 </select>
                             </div>
                         </div>

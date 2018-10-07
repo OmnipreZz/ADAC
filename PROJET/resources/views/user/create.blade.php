@@ -43,9 +43,9 @@
                             <label for="exampleFormControlSelect2" class="col-md-4 col-form-label text-md-right">Rôle de l'utilisateur</label>
                             <div class="col-md-6">
                                 <select id="role" name="role" class="form-control" id="exampleFormControlSelect2">
-                                    <option value="1">Elève</option>
+                                    <option value="3">Elève</option>
                                     <option value="2">Professeur</option>
-                                    <option value="3">Administrateur</option>
+                                    <option value="1">Administrateur</option>
                                 </select>
                             </div>
                         </div>
