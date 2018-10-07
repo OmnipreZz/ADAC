@@ -11,7 +11,7 @@
             <ul>
                 @foreach ($cat->subcategories()->get() as $subcat)
                     <li>
-                        <a class="ddLeft" href="{{ route('posts_from', $subcat->id) }}">{{$subcat->name}}</a>
+                        <a href="{{ route('posts_from', $subcat->id) }}">{{$subcat->name}}</a>
                     </li>
                 @endforeach
             </ul>

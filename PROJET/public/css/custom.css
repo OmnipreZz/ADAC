@@ -122,14 +122,6 @@ main {
     color: #E91E63;
     background: linear-gradient(45deg, #E0E0E0, #9E9E9E);
 }
-
-.ddLeft {
-
-}
-
-.ddLeft:hover {
-    background-color: #7C4DFF;
-}
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////Posts//////////////////////////////// */
