@@ -34,32 +34,26 @@
                             <label for="category"class="col-md-4 col-form-label text-md-right">Catégories</label>
                             <select name="category" class="form-control col-md-6" id="category">
                                 @foreach($categories as $id => $category)
-                                <option value="{{$id}}"
+                                <option value="{{$category->id}}"
                                 @if ($hisCategory->id == $id)
                                 {{'selected'}}
                                 @endif
 
-                                >{{$category}}</option>
+                                >{{$category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send') }}
-                                </button>
+                                <!-- <button type="submit" class="btn btn-primary">
+                                    Modifier
+                                </button> -->
+                                <input type="submit" value="Modifier" class="btn btn-primary">
 
                             </div>
                         </div>
 
-                        
-                        <!-- <div class="form-group row">
-                            <label for="tags"class="col-md-4 col-form-label text-md-right">Tags</label>
-                            <select name="tags[]" class="form-control col-md-6" id="tags" multiple>
-                                
-                            </select>
-                        </div> -->
                     </form>
                 </div>
             </div>
