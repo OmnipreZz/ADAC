@@ -90,22 +90,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        // $randomPassword = $faker->password;
-        $randomPassword = " password$";
+        $randomPassword = $faker->password;
+        // $randomPassword = " password$";
         $hashedPassword = Hash::make($randomPassword);
-
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => $hashedPassword,
-        //     // 'role' => $data['role'],
-        // ]);
 
         return User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => $randomPassword,
-            // 'role' => $data['role'],
+            'password' => $hashedPassword,
+            'role_id' => $request->input('role'),
         ]);
 
         return redirect()->route('user_show', $user->id);
@@ -139,6 +132,7 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
+            'role_id' => $request->input('role'),
             'updated_at' => $request->input('updated_at'),
         ]);
         
