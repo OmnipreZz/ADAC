@@ -42,9 +42,9 @@
                     <button href="#menu-toggle" id="menu-toggle" class="btn btCache persoPurple text-white rounded-circle ml-auto mr-2" role="button"><i class="fas fa-angle-left"></i></button>
                     <button href="#menu-toggle1" id="menu-toggle1" class="btn btCache persoPurple text-white rounded-circle mr-4" role="button"><i class="fas fa-angle-right"></i></button>
 
-                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span> 
-                    </button> -->
+                    </button>
                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
@@ -54,18 +54,27 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
+                            <li>
+                                <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('postSearch') }}">
+                            @csrf
+                                    <input id="word" type="text" class="form-control mr-sm-2" name="word" required autofocus placeholder="Saisir un mot clé" aria-label="Search">
+                                    <button type="submit" class="btn persoPurple text-white my-2 my-sm-0">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </form>
+                            </li>
                             <!-- Authentication Links -->
                             @guest
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
-                            </li>
+                            </li>-->
                             @else
-                            <li class="nav-item dropdown">
+                            <!--<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -85,7 +94,7 @@
                                     @csrf
                                 </form>
                             </div>
-                        </li>
+                        </li>-->
                         @endguest
                     </ul>
                 </div>

@@ -12,10 +12,10 @@
                 <a href="{{route('favoriteDestroy',$post->id)}}" class="m-2" role="button"><i class="fas fa-star fa-2x text-warning"></i></a>
                 @endif
             @endauth
-            <span class="badge badge-primary">{{$post->category->name}}</span>
+            <span class="badge btnVip text-white">{{$post->category->name}}</span>
         </div>
         <div class="card-body text-center bg-white text-secondary">
-            <h2>{{ $post->title }}</h2><br>
+            <h2 class="postTitle">{{ $post->title }}</h2><br>
             <p class="card-text mb-3">{{ $post->content }}</p>
         </div>
         <div class="card-body bg-white text-secondary">
@@ -38,22 +38,21 @@
             
             @if ($post->author ==  Auth::user()->name || Auth::user()->role_id == 1 )
 
-            <a href="{{route('postEdit',$post->id)}}" class="btn btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
+            <a href="{{route('postEdit',$post->id)}}" class="btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
             @endif
 
             
             @if (Auth::user()->role_id == 1)
-            <a href="{{route('postDestroy',$post->id)}}" class="btn btn persoPurple" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
+            <a href="{{route('postDestroy',$post->id)}}" class="btn btnAdmin" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
             @endif
 
 
             @endauth
-            <a href="{{route('postShow',$post->id)}}" class="btn persoPurple" role="button" title="Voir le post"><i class="fas fa-eye text-white"></i></a>
             </div>
         </div>
     </div>
 
-<h1>Commentaires</h1>
+<h1 class="text-center">Commentaires</h1>
 @foreach ($hisComments as $comment)
 
 <div class="card mb-3 shadow">
@@ -74,12 +73,12 @@
             
             @if ($comment->author ==  Auth::user()->name || Auth::user()->role_id == 1 )
 
-            <a href="{{route('postEdit',$post->id)}}" class="btn btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
+            <a href="{{route('postEdit',$post->id)}}" class="btn persoPurple" role="button" title="Editer"><i class="fas fa-edit text-white"></i></a>
             @endif
 
             
             @if (Auth::user()->role_id == 1)
-            <a href="{{route('postDestroy',$post->id)}}" class="btn btn persoPurple" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
+            <a href="{{route('postDestroy',$post->id)}}" class="btn btnAdmin" role="button" title="Supprimer"><i class="fas fa-trash-alt text-white"></i></a>
             @endif
 
 
