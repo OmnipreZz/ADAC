@@ -21,13 +21,13 @@ p {
 /* ////////////////////////////////Layouts//////////////////////////////// */
 .logo {
     border-radius: 25px;
-    background-color: #C2185B;
+    background-color: #E91E63;
     font-family: 'Judson', serif;
     font-size: 20px;
 }
 
 .logo:hover {
-    background-color: #E91E63;
+    background-color: #C2185B;
 }
 
 .logoMobil {
@@ -83,11 +83,31 @@ main {
 .btdesign {
     width: 140px;
     border-radius: 25px;
-    background-color: #512DA8;
+    background: linear-gradient(45deg, #512DA8, #9C27B0);
 }
 
 .btdesign:hover {
-    background-color: #7C4DFF;
+    background: linear-gradient(45deg, #7C4DFF, #673AB7);
+}
+
+.btdesignR {
+    width: 160px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #512DA8, #9C27B0);
+}
+
+.btdesignR:hover {
+    background: linear-gradient(45deg, #7C4DFF, #673AB7);
+}
+
+.btdesignA {
+    width: 160px;
+    border-radius: 25px;
+    background:linear-gradient(45deg, #FF5252, #FF5722);
+}
+
+.btdesignA:hover {
+    background: linear-gradient(45deg, #E64A19, #D32F2F);
 }
 
 .nameTitle {
@@ -100,7 +120,15 @@ main {
 .nameTitle:hover {
     cursor: pointer;
     color: #E91E63;
-    background: linear-gradient(45deg, #BDBDBD, #9E9E9E);
+    background: linear-gradient(45deg, #E0E0E0, #9E9E9E);
+}
+
+.ddLeft {
+
+}
+
+.ddLeft:hover {
+    background-color: #7C4DFF;
 }
 /* /////////////////// */
 /* ///////// */
@@ -111,27 +139,43 @@ main {
 }
 
 .persoPurple {
-    background-color: #512DA8;
+    background: linear-gradient(45deg, #512DA8, #9C27B0);
 }
 
 .persoPurple:hover {
-    background-color: #7C4DFF;  
+    background: linear-gradient(45deg, #7C4DFF, #673AB7);
 }
 
 .textPurple {
     color: #512DA8;
 }
 
-.card-body h2 {
+.postTitle {
     font-family: 'Merriweather', serif;
-    color: #5D4037;
+    color: #795548;
+}
+
+.btnAdmin {
+     background:linear-gradient(45deg, #FF5252, #FF5722);
+}
+
+.btnAdmin:hover {
+    background: linear-gradient(45deg, #E64A19, #D32F2F);
+}
+
+.btnVip {
+    background-color:#009688;
+}
+
+.btnVip:hover {
+    background-color: #00796B;
 }
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////@MEDIA//////////////////////////////// */
 @media (max-width: 1199px) {
     .btdesign {
-        width: 110px;
+        width: 115px;
     }
 }
 
