@@ -12,7 +12,7 @@
 - Kanban
 - Journal de bord
 
-## [Heroku](adacsimplon.herokuapp.com)
+## [Heroku](https://adacsimplon.herokuapp.com)
 - Version en ligne
 
 - Cahier de tests unitaires (absent)
