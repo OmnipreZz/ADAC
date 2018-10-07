@@ -58,12 +58,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        // $categories = Category::pluck('name','id');
         $categories = Category::all();
         $subcategories = Subcategory::all();
-        $encoded_subcats = json_encode(Subcategory::all());
 
-        return view('posts.create',compact('categories', 'subcategories', 'encoded_subcats'));
+        return view('posts.create',compact('categories', 'subcategories'));
     }
 
     /**
@@ -140,11 +138,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        // $categories = Category::pluck('name','id');
+        $subcategories = Subcategory::all();
         $categories = Category::all();
         $post = Post::findOrFail($id);
         $hisCategory = $post->category;
-        return view('posts.edit', compact('post','categories','hisCategory'));
+        return view('posts.edit', compact('post','categories','subcategories','hisCategory'));
     }
 
     /**
@@ -207,6 +205,27 @@ class PostController extends Controller
 
         // get all posts written by current user
         $posts = Post::with('category')->with('favorites')->where('user_id',Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
+
+        // for each post , check if it's one of the current user favorite
+        foreach($posts as $post)
+        {
+            if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+                $post->fav = true;
+            else
+                $post->fav = false;
+        }
+
+        return view('posts.index',compact('posts','categories'));
+    }
+
+    public function search(Request $request) 
+    {
+        $categories = Category::all();
+
+        $posts = Post::with('category')->with('favorites')
+        ->where('title','like','%'.$request->word.'%')
+        ->orWhere('content','like','%'.$request->word.'%')
+        ->orderBy('id', 'desc')->paginate(5);
 
         // for each post , check if it's one of the current user favorite
         foreach($posts as $post)

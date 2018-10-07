@@ -12,8 +12,8 @@
     <p class="card-text">
         <h5>Sous catégories associées</h5>
         <ul>
-            @if ($subCategories)
-                @foreach ($subCategories as $index => $subCategory)
+            @if ($category->subCategories)
+                @foreach ($category->subCategories as $index => $subCategory)
                     <li>{{ $index }} <a href={{ route('subcategory_show', $subCategory->id ) }}>{{ $subCategory->name }}</a></li>
                     <!-- <li>{{ $index }} {{ $subCategory->name }}</li> -->
                 @endforeach

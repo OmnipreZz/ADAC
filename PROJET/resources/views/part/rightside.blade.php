@@ -8,13 +8,13 @@
     <div class="collapse text-left" id="collapseProfil">
             <ul>
                 <li>
-                    <a class="" href="{{ route('user_show', Auth::user()->id ) }}">Mon profil</a>
+                    <a href="{{ route('user_show', Auth::user()->id ) }}" class="btn btdesign text-white mb-1">Mon profil</a>
                 </li>
                 <li>
-                    <a class="" href="{{ route('user_edit', Auth::user()->id ) }}">Editer mon profil</a>
+                    <a class="btn btdesign text-white mb-1" href="{{ route('user_edit', Auth::user()->id ) }}">Editer mon profil</a>
                 </li>
                 <li>
-                    <a class="" href="{{ route('logout') }}"
+                    <a class="btn btdesign text-white mb-1" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                     </a>
@@ -38,7 +38,7 @@
     @if(Auth::user()->role_id==1)
     <hr>
     <div class="my-1">
-        <button class="btn btdesign text-white" type="button" data-toggle="collapse" data-target="#collapseUser" aria-expanded="false" aria-controls="collapse">Utilisateurs
+        <button class="btn btdesign text-white dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseUser" aria-expanded="false" aria-controls="collapse">Utilisateurs
         </button>
     </div>
     <div class="collapse text-left" id="collapseUser">
@@ -53,7 +53,7 @@
     </div>
 
     <div class="my-1">
-        <button class="btn btdesign text-white" type="button" data-toggle="collapse" data-target="#collapseCat" aria-expanded="false" aria-controls="collapse">Catégories
+        <button class="btn btdesign text-white dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseCat" aria-expanded="false" aria-controls="collapse">Catégories
         </button>
     </div>
     <div class="collapse text-left" id="collapseCat">
