@@ -33,6 +33,9 @@ Route::get('post/destroy/{id}','PostController@destroy')->name('postDestroy');
 Route::get('post/favorites','PostController@myfavorites')->name('postFavorites');
 Route::get('post/myposts','PostController@myposts')->name('postMyPosts');
 
+// POST search
+Route::post('post/search','PostController@search')->name('postSearch');
+
 // FILE download
 Route::get('post/download/{filename}','PostController@downloadfile')->name('fileDownload');
 

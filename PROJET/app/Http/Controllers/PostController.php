@@ -220,4 +220,25 @@ class PostController extends Controller
         return view('posts.index',compact('posts','categories'));
     }
 
+    public function search(Request $request) 
+    {
+        $categories = Category::all();
+
+        $posts = Post::with('category')->with('favorites')
+        ->where('title','like','%'.$request->word.'%')
+        ->orWhere('content','like','%'.$request->word.'%')
+        ->orderBy('id', 'desc')->paginate(5);
+
+        // for each post , check if it's one of the current user favorite
+        foreach($posts as $post)
+        {
+            if(in_array(Auth::user()->id,$post->getFavoriteListAttribute()))
+                $post->fav = true;
+            else
+                $post->fav = false;
+        }
+
+        return view('posts.index',compact('posts','categories'));
+    }
+
 }
