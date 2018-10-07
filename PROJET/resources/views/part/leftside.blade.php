@@ -5,7 +5,7 @@
     @if (isset($categories))   
     @foreach ($categories as $cat)
         <div class="my-1">
-            <button class="btn btdesign text-white" type="button" data-toggle="collapse" data-target="#collapse{{$cat->id}}" aria-expanded="false" aria-controls="collapse">{{$cat->name}}</button>
+            <button class="btn btdesign text-white dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapse{{$cat->id}}" aria-expanded="false" aria-controls="collapse">{{$cat->name}}</button>
         </div>
         <div class="collapse text-left" id="collapse{{$cat->id}}">
             <ul>
